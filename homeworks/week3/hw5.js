@@ -13,18 +13,18 @@ function add(a, b) {
   }
   const aArray = aArrayReverse.reverse();
   const bArray = bArrayReverse.reverse();
-  const resault = [];
+  const result = [];
   for (let i = aArray.length - 1; i >= 0; i -= 1) {
-    resault[i] = parseInt(aArray[i], 10) + parseInt(bArray[i], 10);
-    if (i === 0 && resault[i] >= 10) {
-      resault[i] %= 10;
-      resault.splice(0, 0, 1);
-    } else if (resault[i] >= 10) {
-      resault[i] %= 10;
+    result[i] = parseInt(aArray[i], 10) + parseInt(bArray[i], 10);
+    if (i === 0 && result[i] >= 10) {
+      result[i] %= 10;
+      result.splice(0, 0, 1);
+    } else if (result[i] >= 10) {
+      result[i] %= 10;
       aArray[i - 1] = parseInt(aArray[i - 1], 10) + 1;
     }
   }
-  return resault.join('').toString();
+  return result.join('');
 }
 
 module.exports = add;
