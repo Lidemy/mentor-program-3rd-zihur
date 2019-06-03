@@ -1,8 +1,16 @@
 ## 請找出三個課程裡面沒提到的 HTML 標籤並一一說明作用。
+- `<textarea></textarea>`
+  可顯示文字區域，相關屬性有 name：名稱（可重複）、id：名稱（不可重複）、cols、rows、disabled、readonly、wrap等
+- `<hr />` 分隔線
+- `<b></b>` 粗體字、`<i></i>` `<em></em>` 斜體字、`<u></u>`底線
+- `<embed></embed>` 嵌入影音檔，相關屬性有 src、align、autostart、ShowPositionControls、ShowTracker 等
+  更多資訊：http://kcs.kcjh.ptc.edu.tw/~spt/computer/html/embed.htm
 
 
-## 請問什麼是盒模型（box modal）
-
+## 請問什麼是盒模型（box model）
+- 指的是由 content、padding、border、margin 等屬性，由內到外像盒子一樣包覆的範圍，在網頁上每個標籤都有自己所佔據的空間。而現行有兩種常見的盒模型
+1. 預設的傳統盒模型，當我們設定 width、height 的時候，其所指定的範圍其實只有 content 的部分而已，但這在操作上有些不方便，因為一般人並沒有盒模型的概念，溝通時所說的 width、height 指的通常都是到 border 的這段可見範圍，因此延伸出了下面第二種盒模型。
+2. 當你設定 `box-sizing: border-box` 之後，width、height 等屬性判斷範圍將會包含了 padding、border，這樣在溝通和操作上會更為直覺。
 
 ## 請問 display: inline, block 跟 inline-block 的差別是什麼？
 - block（區塊元素）：
