@@ -42,12 +42,15 @@
 
 /*header area*/
 .header {
+  width: 100%;
   background-color: #E9FAFF;
   margin-top: 50px;
 }
 
 .slogon-wrapper {
+  width: 80%;
   padding: 25px;
+  margin: auto;
 }
 
 .slogon__title {
@@ -68,3 +71,15 @@
   border-radius: 5px;
 }
 /*header area*/
+
+/*main area*/
+.main {
+  width: 100%;
+}
+.card-wrapper {
+  width: 80%;
+  padding: 15px 30px;
+  margin: auto;
+  align-items: space-between;
+}
+/*main area*/
