@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap
+}
+.contain {
+  max-width: 100%;
+}
+
+/* nav area */
+.navbar {
+  align-items: center;
+  background: #1F2835;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+.nav__logo {
+  font-size: 20px;
+  font-weight: normal;
+  color: white;
+  padding: 12px;
+  margin: 0px;
+}
+.nav__menu {
+  display: inline-block;
+  color: #A3A5A7;
+  padding: 0px;
+  margin: 0px;
+}
+.nav__list {
+  display: inline-block;
+}
+.nav__list > a {
+  color: #A3A5A7;
+  padding: 16px 10px;          /* google 建議點擊尺寸區域約 40px 以上 */
+  text-decoration: none;
+}
+.nav__list > a:hover {
+  color: #fff;
+  transition: 0.3s;
+}
+/* nav area END*/
+
+/* header area */
+.header {
+  width: 100%;
+  background-color: #E9FAFF;
+  margin-top: 50px;
+}
+.slogon-wrapper {
+  max-width: 960px;
+  padding: 25px;
+  margin: auto;
+}
+.slogon__title {
+  font-size: 72px;
+  font-weight: normal;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+.slogon__btn {
+  text-align: center;
+  font-size: 20px;
+  color: #1F7EF2;
+  background-color: transparent;
+  margin: 15px 0px;
+  padding: 15px 30px;
+  border: 2px solid #1F7EF2;
+  border-radius: 5px;
+  transition: 0.3s;   /* 為保有離開 hover 狀態時的漸變動畫而加入，但變成重整頁面時也會有動畫效果，能否取消？ */
+}
+.slogon__btn:hover {
+  color: #fff;
+  background-color: #1F7EF2;
+}
+.slogon__btn:active {
+  color: #fff;
+  background-color: #1656a5;
+}
+/* header area END */
+
+/* main area */
+.main-wrapper {
+  justify-content: space-between;
+  max-width: 960px;
+  padding: 25px;
+  margin: auto;
+}
+.card {
+  width: 30%;
+  margin-top: 0px;
+}
+.card__title {
+  font-size: 36px;
+  margin: 0px;
+}
+.card__content {
+  margin: 10px 0px 0px 0px;
+  line-height: 1.2em;
+}
+.card__btn {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background-color: #939393;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+.card__btn:hover {
+  background-color: #686868;
+  transition: 0.3s;
+}
+/* main area END*/
+
+/* footer area */
+.footer-wrapper {
+  width: 100%;
+  max-width: 960px;
+  padding: 0px 25px;
+  margin: auto;
+}
+.copywrite {
+  padding-top: 10px;
+  margin-top: 10px;
+  color: #8894a5;
+  border-top: 1px solid #8894a5;
+}
+/* footer area END*/
+
+/* max-width: 650px */
+/* main area-650px */
+@media screen and (max-width: 650px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
+  .card:not(:first-child){
+    margin-top: 30px;
+  }
+}
+/* main area-650px END */
+/* max-width: 650px END */
