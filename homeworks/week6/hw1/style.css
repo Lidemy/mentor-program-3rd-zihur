@@ -44,10 +44,11 @@
   color: #fff;
   transition: 0.3s;
 }
-/* nav area */
+/* nav area END*/
 
 /* header area */
 .header {
+  width: 100%;
   background-color: #E9FAFF;
   margin-top: 50px;
 }
@@ -81,7 +82,7 @@
   color: #fff;
   background-color: #1656a5;
 }
-/* header area */
+/* header area END */
 
 /* main area */
 .main-wrapper {
@@ -116,7 +117,7 @@
   background-color: #686868;
   transition: 0.3s;
 }
-/* main area */
+/* main area END*/
 
 /* footer area */
 .footer-wrapper {
@@ -131,10 +132,10 @@
   color: #8894a5;
   border-top: 1px solid #8894a5;
 }
-/* footer area */
+/* footer area END*/
 
 /* max-width: 650px */
-/* main area */
+/* main area-650px */
 @media screen and (max-width: 650px) {
   .main-wrapper {
     flex-direction: column;
@@ -146,5 +147,5 @@
     margin-top: 30px;
   }
 }
-/* main area */
-/* max-width: 650px */
+/* main area-650px END */
+/* max-width: 650px END */
