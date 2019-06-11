@@ -1,0 +1,8 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', sans-serif, 'Microsoft JhengHei';
+}
+
+.header--bg {
+  width: 100%;
+}
