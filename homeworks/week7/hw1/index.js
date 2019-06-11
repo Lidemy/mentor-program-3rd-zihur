@@ -1,19 +1,21 @@
 let startTime = Number;
 let endTime = Number;
+const randomCountToChangeBgColor = () => timeoutID = setTimeout(changeBgColor, Math.floor(Math.random() * 3000 + 1000));
+// 原本沒有設定 function 直接在其他功能裡設定 timeoutID，但不知道為什麼清除不了。待解問題。
+
 const changeBgColor = function changeBgColor() {
   document.querySelector('body').classList.add('bg--color');
   startTime = new Date().getTime();
   return startTime;
 };
 
-const resetGame = function resetGame() {
-  document.querySelector('button').addEventListener('click', () => {
-    document.querySelector('body').classList.remove('bg--color');
-    document.querySelector('div').removeChild(document.querySelector('button'));
-  });
+const restartGame = function restartGame(e) {
+  e.stopPropagation();
+  document.querySelector('body').classList.remove('bg--color');
+  document.querySelector('div').removeChild(document.querySelector('button'));
+  document.addEventListener('click', result);
+  randomCountToChangeBgColor();
 };
-
-const timeoutID = setTimeout(changeBgColor, Math.floor(Math.random() * 3000 + 1000));
 
 const result = function result() {
   if (document.querySelector('body').classList.contains('bg--color')) {
@@ -32,7 +34,8 @@ const result = function result() {
     clearTimeout(timeoutID);
   }
   document.removeEventListener('click', result);
-  resetGame();
+  document.querySelector('button').addEventListener('click', restartGame, true);
 };
 
 document.addEventListener('click', result);
+randomCountToChangeBgColor();
