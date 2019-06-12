@@ -4,73 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="normalized.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
 	<script src="index.js" defer></script>
-  <title>Document</title>
+  <title>Faked google form</title>
 </head>
 <body>
   <header class="header--bg"></header>
   <main class="main">
     <div class="contain">
       <h1 class="title">程式導師實驗計畫第三期報名表單</h1>
-      <p>詳情請參考：<a href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3" target="_blank">https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3</a></p>
-      <p>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</p>
-      <p class="metion">*必填</p>
+      <div class="title__content">
+        <p>詳情請參考：<a href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3" target="_blank">https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3</a></p>
+        <p>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</p>
+        <p class="mention">*必填</p>
+      </div>
       <form action="###" class="form">
         <div class="form__question">
-          <label for="email"><h3 class="form__question--title">電子郵件地址<span class="metion">*</span></h3></label>
+          <label for="email"><h3 class="form__question--title">電子郵件地址 <span class="mention">*</span></h3></label>
           <input type="email" id="email" class="input--shortText" name="email" placeholder="你的電子郵件">
         </div>
         <div class="form__question">
           <label for="nickname">
-            <h3 class="form__question--title">暱稱<span class="mention">*</span></h3>
-            <p>該如何稱呼你</p>
+            <h3 class="form__question--title">暱稱 <span class="mention">*</span></h3>
+            <div class="form__question--subTitle">該如何稱呼你</div>
           </label>
           <input type="text" id="nickname" class="input--shortText" name="nickname" placeholder="您的回答">
         </div>
         <div class="form__question">
-          <h3 class="form__question--title">報名類型<span class="mention">*</span></h3>
+          <h3 class="form__question--title">報名類型 <span class="mention">*</span></h3>
           <input type="radio" id="option1" class="input--radio" name="registrationType" value="1"><label for="option1"><span>從零到一基礎班（兩個月後開始收保證金 5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</span></label>
           <input type="radio" id="option2" class="input--radio" name="registrationType" value="2"><label for="option2"><span>在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費 35000 元台幣，被淘汰不退還）</span></label>
         </div>
         <div class="form__question">
           <label for="career">
-            <h3 class="form__question--title">現在的職業<span class="mention">*</span></h3>
-            <p>範例：學生、前端工程師、待業中、業務</p>
+            <h3 class="form__question--title">現在的職業 <span class="mention">*</span></h3>
+            <div class="form__question--subTitle">範例：學生、前端工程師、待業中、業務</div>
           </label>
           <input type="text" id="career" class="input--shortText" name="career" placeholder="您的回答">
         </div>
         <div class="form__question">
           <label for="howToKnow">
-            <h3 class="form__question--title">怎麼知道這個計畫的？<span class="mention">*</span></h3>
+            <h3 class="form__question--title">怎麼知道這個計畫的？ <span class="mention">*</span></h3>
           </label>
           <input type="text" id="howToKnow" class="input--longText" name="howToKnow" placeholder="您的回答">
         </div>
         <div class="form__question">
           <label for="experience">
-            <h3 class="form__question--title">是否有程式相關背景？<span class="mention">*</span></h3>
-            <p>範例：無、高中時後學過 C++、學過一點網頁前端、目前在資策會上課…</p>
+            <h3 class="form__question--title">是否有程式相關背景？ <span class="mention">*</span></h3>
+            <div class="form__question--subTitle">範例：無、高中時後學過 C++、學過一點網頁前端、目前在資策會上課…</div>
           </label>
           <input type="text" id="experience" class="input--longText" name="experience" placeholder="您的回答">
         </div>
         <div class="form__question">
           <label for="other">
             <h3 class="form__question--title">其他</h3>
-            <p>任何你想說的</p>
+            <div class="form__question--subTitle">任何你想說的</div>
           </label>
           <input type="text" id="other" class="input--longText" name="other" placeholder="您的回答">
         </div>
         <input type="submit" class="form__btn">
+        <h6 class="h6">請勿利用 Google 表單送出密碼。</h6>
       </form>
-      <h6>請勿利用 Google 表單送出密碼。</h6>
     </div>
+    <footer class="footer">
+      <H6 class="h6">Google 並未認可或建立這項內容。<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/reportabuse?source=https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/viewform">檢舉濫用情形</a> - <a href="https://policies.google.com/terms">服務條款</a></H6>
+      <a href="https://www.google.com/forms/about/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms" class="googleFormLogo"><img src="./image/googlelogo_dark_clr_74x24px.svg" alt="Google" class="googleFormPic"><span class="googleFormText">表單</span></a>
+    </footer>
   </main>
-  <footer class="footer">
-    <H6>Google 並未認可或建立這項內容。<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/reportabuse?source=https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/viewform">檢舉濫用情形</a> - <a href="https://policies.google.com/terms">服務條款</a></H6>
-    <a href="https://www.google.com/forms/about/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms"><img src="https://policies.google.com/terms" alt="Google" class="googleFormPic"><span class="googleFormText">表單</span></a>
-    <div class="reportIcon">!</div>
-  </footer>
+  <div class="reportIcon">!</div>
 </body>
 </html>

@@ -1,16 +1,121 @@
+/* 通用 class */
 * {
   box-sizing: border-box;
-  font-family: 'Noto Sans TC', sans-serif, 'Microsoft JhengHei';
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+}
+p {
+  font-size: 14px;
+  font-weight: normal;
+}
+.mention {
+  color: rgba(255, 0, 0, 0.76);
 }
 
+input[type="text"], input[type="email"] {
+  margin-top: 25px;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+input::-webkit-input-placeholder { color: #a8a8a8; } /* webkit瀏覽器專用 */
+input:-moz-placeholder { color: #a8a8a8; } /* Firefox 4-18瀏覽器專用 */
+input::-moz-placeholder{color:#a8a8a8;} /* Firefox 19+瀏覽器專用 */
+input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
+/* 通用 class 結束 */
+
+/* 背景、區塊設定 */
 .header--bg {
   height: 280px;
   background-image: url(./image/photo-1433357094834-cdeebc8e9dce.jpg);
   background-size: cover;
   background-position: bottom;
 }
+.main {
+  background-color: #fffbf8;
+  max-width: 100%;
+}
+.contain {
+  width: 640px;
+  max-width: 100%;
+  background-color: #ffffff;
+  position: relative;
+  top: -100px;
+  margin: 0 auto;
+  padding: 40px 0px;
+  border-top: 8px solid darkorange;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+}
 
+/* 標題設定 */
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0px 35px;
+}
+.title__content {
+  margin: 0px 35px;
+}
 
+/* 問題表單區塊 */
+.form {
+  margin: 0 20px;
+}
+.form__question {
+  margin-top: 3px;
+  padding: 20px 15px;
+}
+.form__question--title {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0px;
+}
+.form__question--subTitle {
+  font-size: 14px;
+}
+.input--shortText {
+  width: 300px;
+}
+.input--longText {
+  width: 100%;
+}
+.form__btn {
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(0, 110, 255);
+  border: none;
+  border-radius: 3px;
+  margin-top: 35px;
+  margin-left: 15px;
+  padding: 8px 28px;
+}
+
+.h6 {
+  color: #8f8f8f;
+  font-weight: normal;
+  margin: 25px 0px 0px 15px;
+}
+.footer {
+  width: 640px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.googleFormLogo {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-decoration: none;
+}
+.googleFormPic {
+  vertical-align: middle;
+  width: 50px;
+}
+.googleFormText {
+  color: rgb(220, 220, 220);
+}
 
 @media screen and (max-width: 660px) {
   .header--bg {
