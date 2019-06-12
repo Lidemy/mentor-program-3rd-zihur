@@ -13,8 +13,8 @@
   <title>Faked google form</title>
 </head>
 <body>
-  <header class="header--bg"></header>
   <main class="main">
+    <div class="main__header"></div>
     <div class="contain">
       <h1 class="title">程式導師實驗計畫第三期報名表單</h1>
       <div class="title__content">
@@ -36,8 +36,14 @@
         </div>
         <div class="form__question">
           <h3 class="form__question--title">報名類型 <span class="mention">*</span></h3>
-          <input type="radio" id="option1" class="input--radio" name="registrationType" value="1"><label for="option1"><span>從零到一基礎班（兩個月後開始收保證金 5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</span></label>
-          <input type="radio" id="option2" class="input--radio" name="registrationType" value="2"><label for="option2"><span>在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費 35000 元台幣，被淘汰不退還）</span></label>
+          <div class="form__question--option">
+            <input type="radio" id="option1" class="input--radio" name="registrationType" value="1">
+            <label for="option1" class="form__question--content">從零到一基礎班（兩個月後開始收保證金 5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</label>
+          </div>
+          <div class="form__question--option">
+            <input type="radio" id="option2" class="input--radio" name="registrationType" value="2">
+            <label for="option2" class="form__question--content">在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費 35000 元台幣，被淘汰不退還）</label>
+          </div>
         </div>
         <div class="form__question">
           <label for="career">
@@ -66,14 +72,16 @@
           </label>
           <input type="text" id="other" class="input--longText" name="other" placeholder="您的回答">
         </div>
-        <input type="submit" class="form__btn">
-        <h6 class="h6">請勿利用 Google 表單送出密碼。</h6>
+        <div class="form__submit">
+          <input type="submit" class="form__btn">
+          <h6 class="submitMention">請勿利用 Google 表單送出密碼。</h6>
+        </div>
       </form>
     </div>
-    <footer class="footer">
-      <H6 class="h6">Google 並未認可或建立這項內容。<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/reportabuse?source=https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/viewform">檢舉濫用情形</a> - <a href="https://policies.google.com/terms">服務條款</a></H6>
-      <a href="https://www.google.com/forms/about/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms" class="googleFormLogo"><img src="./image/googlelogo_dark_clr_74x24px.svg" alt="Google" class="googleFormPic"><span class="googleFormText">表單</span></a>
-    </footer>
+    <div class="main__footer">
+      <h6 class="disclaimer">Google 並未認可或建立這項內容。<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/reportabuse?source=https://docs.google.com/forms/d/e/1FAIpQLSf_VezMf-V20hMDYTNEM0LEkuztIg-ZIsSI9Zy9xLAwGYzxGA/viewform">檢舉濫用情形</a> - <a href="https://policies.google.com/terms">服務條款</a></h6>
+      <a href="https://www.google.com/forms/about/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms" class="googleForm"><img src="./image/googlelogo_dark_clr_74x24px.svg" alt="Google" class="googleForm__logo"><span class="googleForm__text">表單</span></a>
+    </div>
   </main>
   <div class="reportIcon">!</div>
 </body>

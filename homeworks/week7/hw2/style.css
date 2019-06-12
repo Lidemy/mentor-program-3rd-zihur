@@ -1,10 +1,10 @@
 /* 通用 class */
 * {
   box-sizing: border-box;
-  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
 }
 body {
   color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
 }
 p {
   font-size: 14px;
@@ -27,7 +27,7 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
 /* 通用 class 結束 */
 
 /* 背景、區塊設定 */
-.header--bg {
+.main__header {
   height: 280px;
   background-image: url(./image/photo-1433357094834-cdeebc8e9dce.jpg);
   background-size: cover;
@@ -36,17 +36,19 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
 .main {
   background-color: #fffbf8;
   max-width: 100%;
+  padding-bottom: 26px;
 }
+
 .contain {
   width: 640px;
   max-width: 100%;
   background-color: #ffffff;
-  position: relative;
-  top: -100px;
   margin: 0 auto;
-  padding: 40px 0px;
+  padding-top: 40px;
   border-top: 8px solid darkorange;
   box-shadow: 0 1px 3px rgb(160, 160, 160);
+  position: relative;
+  margin-top: -100px;
 }
 
 /* 標題設定 */
@@ -75,11 +77,26 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
 .form__question--subTitle {
   font-size: 14px;
 }
+.form__question--option {
+  display: flex;
+  font-size: 16px;
+  margin: 16px 0px;
+  align-items: center;
+}
+.form__question--content {
+  margin-left: 10px; 
+}
+.input--radio {
+  border: 1px solid #8f8f8f;
+}
 .input--shortText {
-  width: 300px;
+  width: 50%;
 }
 .input--longText {
   width: 100%;
+}
+.form__submit {
+  padding: 15px;
 }
 .form__btn {
   font-size: 14px;
@@ -88,33 +105,55 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   border: none;
   border-radius: 3px;
   margin-top: 35px;
-  margin-left: 15px;
   padding: 8px 28px;
 }
-
-.h6 {
+.submitMention {
   color: #8f8f8f;
   font-weight: normal;
-  margin: 25px 0px 0px 15px;
+  margin-top: 25px;
 }
-.footer {
+.disclaimer {
+  color: #8f8f8f;
+  font-weight: normal;
+  margin: 0px;
+}
+.disclaimer > a {
+  color: #8f8f8f;
+}
+.main__footer {
   width: 640px;
   max-width: 100%;
   margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
 }
-.googleFormLogo {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+.googleForm {
+  display: block;
   text-decoration: none;
+  margin-top: 26px;
 }
-.googleFormPic {
+.googleForm__logo {
   vertical-align: middle;
-  width: 50px;
+  width: 74px;
+  opacity: 0.26;
 }
-.googleFormText {
-  color: rgb(220, 220, 220);
+.googleForm__text {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.26);
+  margin-left: 2px;
+}
+
+/* 回報icon */
+.reportIcon {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 24px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
 }
 
 @media screen and (max-width: 660px) {
