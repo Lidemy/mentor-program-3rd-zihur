@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: roboto, "Noto sans JP", "微軟正黑體", arial, sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  width: 400px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.caculator {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+.answer {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 60px;
+  padding-right: 7px;
+  text-align: end;
+}
+.caculate {
+  height: 270px;
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+.caculate__btn {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  min-width: 23.5%;
+  padding: 3% 0;
+}
+.caculate__btn--span2 {
+  min-width: 49%;
+  padding: 3% 0;
+}
+.caculate__btn--color {
+  border: 1px solid rgba(255, 156, 25, 0.8);
+}
+.caculate__btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: ease-in-out 0.3s;
+}
+.caculate__btn--span2:hover {
+  background-color: rgba(255, 156, 25, 0.8);
+  border: none;
+  transition: ease-in-out 0.3s;
+}
+.caculate__btn:active {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: none;
+}
+.caculate__btn--span2:active {
+  background-color: rgba(255, 156, 25, 1);
+  transition: none;
+}
+
+@media screen and (max-width: 420px) {
+  .main {
+    width: 300px;
+    min-width: 300px;
+  }
+  .caculate__btn {
+    min-width: 24%;
+    padding: 5% 0;
+  }
+  .caculate__btn--span2 {
+    min-width: 49.333%;
+    padding: 5% 0;
+  }
+}
