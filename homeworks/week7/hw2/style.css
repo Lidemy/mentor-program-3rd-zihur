@@ -13,12 +13,22 @@ p {
 .mention {
   color: rgba(255, 0, 0, 0.76);
 }
+.error {
+  background-color:rgba(255, 0, 0, 0.1);
+}
+.hidden {
+  display: none;
+}
 
 input[type="text"], input[type="email"] {
   margin-top: 25px;
   border: none;
   border-bottom: 1px solid #dcdcdc;
+  background-color: transparent;
   outline: none;
+}
+input[type="radio"] {
+  display: none;
 }
 
 input::-webkit-input-placeholder { color: #a8a8a8; } /* webkit瀏覽器專用 */
@@ -48,7 +58,6 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   padding-top: 40px;
   border-top: 8px solid darkorange;
   box-shadow: 0 1px 3px rgb(160, 160, 160);
-  position: relative;
   margin-top: -100px;
 }
 
@@ -79,30 +88,50 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   font-size: 14px;
 }
 .form__question--option {
-  display: flex;
   font-size: 16px;
-  margin: 16px 0px;
-  align-items: center;
+  margin-top: 20px;
+  position: relative;
 }
-.form__question--content {
-  margin-left: 10px;
+input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 35px;
 }
-.input--radio {
-  display: block;
-}
-.input--radio + label::before {
+input[type="radio"] + label::before {
   content: "";
-  width: 25px;
-  height: 25px;
-  border: 1px solid #8f8f8f;
-
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s;
 }
-
+input[type="radio"]:active + label::before, input[type="radio"]:hover + label::before{
+  border: 2px solid rgb(200, 0, 0);
+  background-color: rgb(200, 0, 0);
+  box-shadow: 0 0 0 3px rgb(255, 255, 255) inset, 0 0 0 15px rgba(63, 0, 0, 0.15);
+}
+input[type="radio"]:checked + label::before {
+  border: 2px solid rgb(200, 0, 0);
+  background-color: rgb(200, 0, 0);
+  box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
+}
 .input--shortText {
   width: 50%;
 }
+.input--shortText:focus {
+  border-bottom: 2px solid rgb(200, 0, 0);
+  transition: all 0.5s;
+}
 .input--longText {
   width: 100%;
+}
+.input--longText:focus {
+  border-bottom: 2px solid rgb(200, 0, 0);
+  transition: all 0.5s;
 }
 .form__submit {
   padding: 15px;
@@ -170,6 +199,7 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   font-size: 12px;
   color: #fff;
   text-align: center;
+  cursor: pointer;
 }
 .reportIcon::after {
   content:"";
@@ -180,7 +210,28 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   left: 20px;
   bottom: 14px;
 }
-
+.eastEgg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.eastEgg__content {
+  z-index: 100;
+  width: 400px;
+  height: 600px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  border-top: 5px solid dodgerblue;
+  box-shadow: 0 0 20px rgb(120, 120, 120);
+  font-size: 24px;
+  padding: 20px;
+}
 @media screen and (max-width: 660px) {
   .header--bg {
     height: 120px;
