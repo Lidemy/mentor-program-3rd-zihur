@@ -18,6 +18,7 @@ input[type="text"], input[type="email"] {
   margin-top: 25px;
   border: none;
   border-bottom: 1px solid #dcdcdc;
+  outline: none;
 }
 
 input::-webkit-input-placeholder { color: #a8a8a8; } /* webkit瀏覽器專用 */
@@ -84,11 +85,19 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   align-items: center;
 }
 .form__question--content {
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 .input--radio {
-  border: 1px solid #8f8f8f;
+  display: block;
 }
+.input--radio + label::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 1px solid #8f8f8f;
+
+}
+
 .input--shortText {
   width: 50%;
 }
@@ -106,6 +115,11 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   border-radius: 3px;
   margin-top: 35px;
   padding: 8px 28px;
+  transition: 0.3s;
+}
+.form__btn:active {
+  background-color: rgba(0, 110, 255, 0.7);
+  transition: 0.3s;
 }
 .submitMention {
   color: #8f8f8f;
@@ -150,10 +164,21 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
   bottom: 20px;
   width: 24px;
   height: 18px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(102, 102, 102);
   border-radius: 3px;
+  padding: 3px;
+  font-size: 12px;
   color: #fff;
   text-align: center;
+}
+.reportIcon::after {
+  content:"";
+  position: fixed;
+  border: 5px solid rgb(102, 102, 102);
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  left: 20px;
+  bottom: 14px;
 }
 
 @media screen and (max-width: 660px) {
