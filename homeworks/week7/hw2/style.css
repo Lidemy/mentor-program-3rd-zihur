@@ -1,4 +1,4 @@
-/* 通用 class */
+/* 通用 class 包含動態添加用 class*/
 * {
   box-sizing: border-box;
 }
@@ -11,10 +11,17 @@ p {
   font-weight: normal;
 }
 .mention {
-  color: rgba(255, 0, 0, 0.76);
+  color: rgba(200, 0, 0, 0.76);
 }
 .error {
   background-color:rgba(255, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+.errorText {
+  font-size: 16px;
+  color: rgba(200, 0, 0, 0.76);
+  margin-top: 20px;
+  transition: all 0.5s;
 }
 .hidden {
   display: none;
@@ -78,6 +85,7 @@ input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
 .form__question {
   margin-top: 3px;
   padding: 20px 15px;
+  transition: all 0.5s;
 }
 .form__question--title {
   font-size: 20px;
