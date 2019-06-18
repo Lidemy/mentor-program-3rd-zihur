@@ -161,7 +161,7 @@ input[6].addEventListener('click', (e) => {
 }, true);
 
 // 表單送出前驗證
-submit.addEventListener('click', (e) => {
+submit.addEventListener('submit', (e) => {
   if (checkError() || !(registrationType[0].checked || registrationType[1].checked)) {
     if (!(registrationType[0].checked || registrationType[1].checked) && !formQuestion[2].classList.contains('error')) {
       formQuestion[2].classList.add('error');
