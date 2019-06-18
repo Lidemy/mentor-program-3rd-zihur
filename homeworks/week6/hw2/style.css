@@ -4,7 +4,7 @@
 P {
   line-height: 1.3em;
 }
-.clap__wrapper{
+.clap{
   text-align: center;
   font-weight: bold;
   position: fixed;
@@ -16,12 +16,12 @@ P {
   border-radius: 60px;
   transition: 0.3s;
 }
-.clap__wrapper:hover{
+.clap:hover{
   border: 1px solid #f5a630;
   color: #f5a630;
   transition: 0.3s;
 }
-.clap__wrapper:active{
+.clap:active{
   border: 1px solid #d18d27;
   color: #d18d27;
   transition: 0.3s;
@@ -34,41 +34,41 @@ P {
   margin: 5px;
 }
 
-.article__wrapper {
+.article {
   width: 100%;
   max-width: 960px;
   padding: 20px 30px;
   margin: auto;
 }
-.title {
+.article__title {
   font-size: 3rem;
   margin: 5px 0px;
 }
 
 @media screen and (max-width: 1060px){
-  .clap__wrapper{
+  .clap{
     display: none;
   }
 }
 
 @media screen and (max-width: 730px){
-  .article__wrapper {
+  .article {
     padding: 20px 30px;
     margin: auto;
     font-size: .9rem;
   }
-  .title {
+  .article__title {
     font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 425px){
-  .article__wrapper {
+  .article {
     padding: 20px 30px;
     margin: auto;
     font-size: .85rem;
   }
-  .title {
+  .article__title {
     font-size: 2rem;
   }
 }

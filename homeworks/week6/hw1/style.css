@@ -52,7 +52,7 @@
   background-color: #E9FAFF;
   margin-top: 50px;
 }
-.slogon-wrapper {
+.slogon {
   max-width: 960px;
   padding: 25px;
   margin: auto;
@@ -85,7 +85,7 @@
 /* header area END */
 
 /* main area */
-.main-wrapper {
+.main {
   justify-content: space-between;
   max-width: 960px;
   padding: 25px;
@@ -120,7 +120,7 @@
 /* main area END*/
 
 /* footer area */
-.footer-wrapper {
+.footer {
   width: 100%;
   max-width: 960px;
   padding: 0px 25px;
@@ -137,7 +137,7 @@
 /* max-width: 650px */
 /* main area-650px */
 @media screen and (max-width: 650px) {
-  .main-wrapper {
+  .main {
     flex-direction: column;
   }
   .card {

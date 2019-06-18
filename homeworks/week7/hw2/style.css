@@ -1,0 +1,247 @@
+/* 通用 class 包含動態添加用 class*/
+* {
+  box-sizing: border-box;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+}
+p {
+  font-size: 14px;
+  font-weight: normal;
+}
+.mention {
+  color: rgba(200, 0, 0, 0.76);
+}
+.error {
+  background-color:rgba(255, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+.errorText {
+  font-size: 16px;
+  color: rgba(200, 0, 0, 0.76);
+  margin-top: 20px;
+  transition: all 0.5s;
+}
+.hidden {
+  display: none;
+}
+
+input[type="text"], input[type="email"] {
+  margin-top: 25px;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: transparent;
+  outline: none;
+}
+input[type="radio"] {
+  display: none;
+}
+
+input::-webkit-input-placeholder { color: #a8a8a8; } /* webkit瀏覽器專用 */
+input:-moz-placeholder { color: #a8a8a8; } /* Firefox 4-18瀏覽器專用 */
+input::-moz-placeholder{color:#a8a8a8;} /* Firefox 19+瀏覽器專用 */
+input:-ms-input-placeholder{color: #a8a8a8;}  /* IE10瀏覽器專用 */
+/* 通用 class 結束 */
+
+/* 背景、區塊設定 */
+.main__header {
+  height: 280px;
+  background-image: url(./image/photo-1433357094834-cdeebc8e9dce.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+.main {
+  background-color: #fffbf8;
+  max-width: 100%;
+  padding-bottom: 26px;
+}
+
+.contain {
+  width: 640px;
+  max-width: 100%;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding-top: 40px;
+  border-top: 8px solid darkorange;
+  box-shadow: 0 1px 3px rgb(160, 160, 160);
+  margin-top: -100px;
+}
+
+/* 標題設定 */
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0px 35px;
+}
+.title__content {
+  margin: 0px 35px;
+}
+
+/* 問題表單區塊 */
+.form {
+  margin: 0 20px;
+}
+.form__question {
+  margin-top: 3px;
+  padding: 20px 15px;
+  transition: all 0.5s;
+}
+.form__question--title {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 0px;
+}
+.form__question--subTitle {
+  font-size: 14px;
+}
+.form__question--option {
+  font-size: 16px;
+  margin-top: 20px;
+  position: relative;
+}
+input[type="radio"] + label {
+  display: inline-block;
+  margin-left: 35px;
+}
+input[type="radio"] + label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+}
+input[type="radio"]:active + label::before, input[type="radio"]:hover + label::before{
+  border: 2px solid rgb(200, 0, 0);
+  background-color: rgb(200, 0, 0);
+  box-shadow: 0 0 0 3px rgb(255, 255, 255) inset, 0 0 0 15px rgba(63, 0, 0, 0.15);
+}
+input[type="radio"]:checked + label::before {
+  border: 2px solid rgb(200, 0, 0);
+  background-color: rgb(200, 0, 0);
+  box-shadow: 0 0 0 3px rgb(255, 255, 255) inset;
+}
+.input--shortText {
+  width: 50%;
+}
+.input--shortText:focus {
+  border-bottom: 2px solid rgb(200, 0, 0);
+  transition: all 0.5s;
+}
+.input--longText {
+  width: 100%;
+}
+.input--longText:focus {
+  border-bottom: 2px solid rgb(200, 0, 0);
+  transition: all 0.5s;
+}
+.form__submit {
+  padding: 15px;
+}
+.form__btn {
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(0, 110, 255);
+  border: none;
+  border-radius: 3px;
+  margin-top: 35px;
+  padding: 8px 28px;
+  transition: 0.3s;
+}
+.form__btn:active {
+  background-color: rgba(0, 110, 255, 0.7);
+  transition: 0.3s;
+}
+.submitMention {
+  color: #8f8f8f;
+  font-weight: normal;
+  margin-top: 25px;
+}
+.disclaimer {
+  color: #8f8f8f;
+  font-weight: normal;
+  margin: 0px;
+}
+.disclaimer > a {
+  color: #8f8f8f;
+}
+.main__footer {
+  width: 640px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+}
+.googleForm {
+  display: block;
+  text-decoration: none;
+  margin-top: 26px;
+}
+.googleForm__logo {
+  vertical-align: middle;
+  width: 74px;
+  opacity: 0.26;
+}
+.googleForm__text {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.26);
+  margin-left: 2px;
+}
+
+/* 回報icon */
+.reportIcon {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 24px;
+  height: 18px;
+  background-color: rgb(102, 102, 102);
+  border-radius: 3px;
+  padding: 3px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.reportIcon::after {
+  content:"";
+  position: fixed;
+  border: 5px solid rgb(102, 102, 102);
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  left: 20px;
+  bottom: 14px;
+}
+.eastEgg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.eastEgg__content {
+  z-index: 100;
+  width: 400px;
+  height: 600px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  border-top: 5px solid dodgerblue;
+  box-shadow: 0 0 20px rgb(120, 120, 120);
+  font-size: 24px;
+  padding: 20px;
+}
+@media screen and (max-width: 660px) {
+  .header--bg {
+    height: 120px;
+  }
+}

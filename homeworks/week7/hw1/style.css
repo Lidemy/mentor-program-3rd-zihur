@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', sans-serif, 'Microsoft JhengHei';
+}
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 3rem;
+}
+.bg--color {
+  background-color: rgb(234, 128, 23);
+}
+.btn--replay {
+  display: block;
+  font-size: 1rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
