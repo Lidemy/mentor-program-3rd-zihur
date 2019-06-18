@@ -3,33 +3,34 @@
 }
 body {
   font-family: roboto, "Noto sans JP", "微軟正黑體", arial, sans-serif;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
 
 .main {
-  display: flex;
   width: 400px;
   max-width: 100%;
   margin: 0 auto;
   margin-top: 5%;
 }
 .caculator {
+  background: linear-gradient(to bottom right, #1177ec 0%,#2596f3 35%,#1971be 100%);
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 15px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .answer {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
   font-size: 60px;
   padding-right: 7px;
   text-align: end;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
 }
 .caculate {
   height: 270px;
   width: 100%;
   display: flex;
-  flex-flow: row-reverse;
   justify-content: space-between;
   align-content: space-between;
   align-items: center;
@@ -39,35 +40,38 @@ body {
   text-align: center;
 }
 .caculate__btn {
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   min-width: 23.5%;
   padding: 3% 0;
 }
 .caculate__btn--span2 {
+  border: 1px solid rgba(255, 156, 25, 1);
   min-width: 49%;
   padding: 3% 0;
 }
-.caculate__btn--color {
-  border: 1px solid rgba(255, 156, 25, 0.8);
-}
 .caculate__btn:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   border: none;
   transition: ease-in-out 0.3s;
 }
 .caculate__btn--span2:hover {
-  background-color: rgba(255, 156, 25, 0.8);
+  background-color: rgba(255, 156, 25, 1);
   border: none;
   transition: ease-in-out 0.3s;
 }
 .caculate__btn:active {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   transition: none;
 }
 .caculate__btn--span2:active {
-  background-color: rgba(255, 156, 25, 1);
+  background-color: rgba(255, 156, 25, 0.8);
   transition: none;
 }
+.metion {
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 20px;
+}
+
 
 @media screen and (max-width: 420px) {
   .main {
