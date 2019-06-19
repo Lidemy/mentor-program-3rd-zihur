@@ -1,4 +1,4 @@
-const submit = document.querySelector('.form__btn');
+const submit = document.querySelector('.form');
 const input = document.querySelectorAll('input');
 const formQuestion = document.querySelectorAll('.form__question');
 const registrationType = document.querySelectorAll('input[name=registrationType]');
@@ -32,6 +32,7 @@ function checkError() {
       newDiv.innerText = '這是必填問題';
       newDiv.classList.add('errorText');
       inputText[i].closest('.form__question').appendChild(newDiv);
+      result = true;
     }
     if (inputText[i].value === '') {
       result = true;
