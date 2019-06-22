@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+}
+.main {
+  width: 100%;
+  margin: auto;
+}
+.main-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./img/hotpot-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-bg::after {
+  content: "123";
+  background: inherit;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(5px);
+}
+.main-bg__contain {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 48px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  height: 600px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  padding: 0 0 0 50px;
+}
+
+.main-bg__content .main-bg__btn {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  margin: 20px;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background: rgb(211, 36, 36);
+}
+.main-bg__content .main-bg__btn:active {
+  background: rgb(199, 23, 23);
+}
+
+.prize-bg--first {
+  background-image: url("./img/prize-bg-first.jpg");
+  width: 50%;
+  height: 100%;
+}
