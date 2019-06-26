@@ -1,18 +1,18 @@
 const btn = document.querySelector('.main-bg__btn');
 const contain = document.querySelector('.main-bg__contain');
-const xhrRequest = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 
 // 不知道這樣包成一個 sendRequest 的函式，是否正確，雖然這作業沒用到很多次，但感覺這是會常用到的？
 function sendRequest() {
-  xhrRequest.open('get', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true);
-  xhrRequest.send();
+  xhr.open('get', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true);
+  xhr.send();
 }
-// 不知道能不能再簡化下面的，但我目前想不到，有想過把要添加的 CSS CLASS 直接命名成資料庫回傳的值，這樣可以再少四行吧，但是會變成 CSS 命名不統一。
+// 不知道能不能再簡化下面的，但我目前沒想到，有想過把要添加的 CSS CLASS 直接命名成資料庫回傳的值，這樣可以再少一點吧？，但是會變成 CSS 命名不統一。
 function prizeResult() {
   sendRequest();
-  xhrRequest.onload = () => {
-    if (btn.innerText === '開始抽獎' && (xhrRequest.status >= 200 && xhrRequest.status < 400)) {
-      const jsonData = JSON.parse(xhrRequest.responseText);
+  xhr.onload = () => {
+    if (btn.innerText === '開始抽獎' && (xhr.status >= 200 && xhr.status < 400)) {
+      const jsonData = JSON.parse(xhr.responseText);
       const div = document.createElement('div');
       div.classList.add('prize-bg');
       contain.appendChild(div);
@@ -46,8 +46,8 @@ function prizeResult() {
       console.log('something is error');
     }
   };
-  xhrRequest.onerror = () => {
-    console.log(xhrRequest.status);
+  xhr.onerror = () => {
+    console.log(xhr.status);
   };
 }
 
