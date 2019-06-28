@@ -14,18 +14,19 @@ body {
   margin-top: 5%;
 }
 .caculator {
-  background: linear-gradient(to bottom right, #1177ec 0%,#2596f3 35%,#1971be 100%);
+  background: linear-gradient(to bottom right, #0e74e9 -10%,#30a2ff 35%,#1369b4 100%);
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+
   padding: 15px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
 }
 .answer {
   color: rgb(255, 255, 255);
   font-size: 60px;
   padding-right: 7px;
   text-align: end;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 .caculate {
   height: 270px;
@@ -50,11 +51,13 @@ body {
   padding: 3% 0;
 }
 .caculate__btn:hover {
+  color: rgb(255, 255, 255);
   background-color: rgba(255, 255, 255, 0.4);
   border: none;
   transition: ease-in-out 0.3s;
 }
 .caculate__btn--span2:hover {
+  color: rgb(255, 255, 255);
   background-color: rgba(255, 156, 25, 1);
   border: none;
   transition: ease-in-out 0.3s;

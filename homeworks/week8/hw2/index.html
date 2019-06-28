@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <link href="normalized.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="index.js" defer></script>
+  <title>留言板功能實作</title>
+</head>
+<body>
+  <main class="wrap">
+    <div class="bulletin-board">
+      <div class="bulletin-board__title">王媽媽火鍋留言板</div>
+      <div class="bulletin-board__message">
+        <!-- 留言區塊範本
+        <div class="message">
+            <div class="message__id">1</div>
+            <div class="message__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum magni aspernatur nulla autem ut, ducimus quam voluptates qui nostrum quaerat quasi porro rem dolorem necessitatibus minima labore harum, quia voluptatem?</div>
+        </div> -->
+      </div>
+      <hr>
+      <div class="bulletin-board__change-page">
+          <input type="button" value="上一頁">
+          <input type="button" value="1">
+          <input type="button" value="2">
+          <input type="button" value="下一頁">
+          <input type="button" value="這邊的功能還沒做啦...">
+      </div>
+      <div class="comment__title">Leave Comment：</div>
+      <form action="" class="bulletin-board__comment">
+        <textarea class="comment__text"></textarea>
+        <input type="submit" value="送出 >>" class="submit">
+      </form>
+    </div>
+    <div class="footer">&copy 2019 created by Zihur</div>
+  </main>
+</body>
+</html>

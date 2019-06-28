@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+}
+.main {
+  width: 100%;
+  margin: auto;
+}
+.main-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./img/hotpot-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.main-bg::after {
+  content: "";
+  background: inherit;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: blur(5px);
+}
+.main-bg__contain {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 48px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 400px;
+  height: 65%;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  padding: 0 100px;
+}
+.main-bg__content {
+  text-align: center;
+  transition: 0.5s;
+}
+.main-bg__content p {
+  margin: 5px;
+}
+.main-bg__content .main-bg__btn {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  margin: 20px 0;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background: rgb(211, 36, 36);
+}
+.main-bg__content .main-bg__btn:active {
+  background: rgb(199, 23, 23);
+}
+.main-bg__content .main-bg__btn:focus {
+  outline: none;
+}
+.prize-bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  transition: 0.5s;
+}
+.prize-bg--first {
+  background: url("./img/airplane.svg");
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+}
+.prize-bg--second {
+  background: url("./img/tv.svg");
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+}
+.prize-bg--third {
+  background: url("./img/youtube.svg");
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+}
+.prize-bg--none {
+  background: url("./img/crying.svg");
+  background-size: contain;
+  width: 300px;
+  height: 300px;
+}
+.prize__content {
+  font-size: 24px;
+  margin-top: 30px;
+}
+.footer {
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+}

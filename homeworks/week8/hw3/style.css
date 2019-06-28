@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+body {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+  background-image: url(https://i.imgur.com/1MZejOg.jpg);
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  background-color: black;
+  padding: 15px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.header__logo {
+  font-size: 1.25rem;
+  min-width: 165px;
+  color: #fff;
+  margin-right: 5px;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.header__nav li {
+  margin-left: 15px;
+}
+.header__nav li:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.header__nav .actived, .header__nav .actived:hover {
+  color: #fff;
+}
+.header__description {
+  margin-left: auto;
+  color: #fff;
+}
+.header__description::after {
+  content: "NOW";
+  color: black;
+  background-color: #fff;
+  padding: 5px;
+  margin-left: 5px;
+}
+.wrap {
+  width: 1160px;
+  margin: 0 auto;
+  text-align: center;
+}
+.title {
+  color: rgb(231, 243, 253);
+  font-weight: 300;
+  font-size: 3.5rem;
+  margin: 15px 0 0 0;
+}
+.title__description {
+  color: rgb(184, 223, 255);
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 10px 0 15px 0;
+}
+.live-game {
+  display: flex;
+  flex-wrap: wrap;
+}
+.live-game__box {
+  background: rgb(0, 0, 0);
+  opacity: 0.8;
+  width: 290px;
+  padding:3px;
+  transition: all .3s;
+}
+.live-game__box:hover {
+  z-index: 1;
+  opacity: 1;
+  width: 290px;
+  padding:3px;
+  box-shadow: 0 0 15px 5px #000;
+  transform: scale(1.03);
+}
+.live-game__screencast {
+  opacity: 0.8;
+  width: 100%;
+  height: auto;
+}
+.live-game__content {
+  display: flex;
+  align-items: center;
+  padding: 0 5px 5px 5px;
+}
+.live-game__avatar {
+  width: 23%;
+  height: auto;
+  border-radius: 50%;
+  margin: 3px 3px 0 3px;
+}
+.live-game__info-block {
+  width: 76%;
+  padding: 5px;
+  text-align: left;
+}
+.live-game__title {
+  font-size: 1rem;
+  color: rgb(231, 243, 253);
+  width: 100%;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  white-space : nowrap;
+  margin-bottom: 5%;
+}
+.live-game__streamer {
+  font-size: 0.8rem;
+  color: rgb(231, 243, 253);
+}
+.footer {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  margin: 25px;
+}
+.footer a {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  text-decoration: none;
+}
