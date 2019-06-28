@@ -1,23 +1,23 @@
 // API https://api.twitch.tv/kraken/streams/
 // u2i5e5oy5cwidtrgmt44nf110ty1vd
 
-// function getTopGames() {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('get', 'https://api.twitch.tv/kraken/games/top');
-//   xhr.setRequestHeader('Client-ID','u2i5e5oy5cwidtrgmt44nf110ty1vd');
-//   xhr.send();
-//   xhr.onload = () => {
-//     const streamData = JSON.parse(xhr.responseText).top;
-//     for (let i = 0; i < 5; i += 1) {
-//       const newList = document.createElement('li')
-//       newList.innerText = streamData[i].game.name
-//       document.querySelector('.header__nav').appendChild(newList);
-//     }
-//     document.querySelector('.header__nav > li').classList.add('actived');
-//     // console.log(streamData[0].game.name);
-//     // console.log(streamData);
-//   }
-// }
+function getTopGames() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('get', 'https://api.twitch.tv/kraken/games/top');
+  xhr.setRequestHeader('Client-ID', 'u2i5e5oy5cwidtrgmt44nf110ty1vd');
+  xhr.send();
+  xhr.onload = () => {
+    const streamData = JSON.parse(xhr.responseText).top;
+    for (let i = 0; i < 5; i += 1) {
+      const newList = document.createElement('li');
+      newList.innerText = streamData[i].game.name;
+      document.querySelector('.header__nav').appendChild(newList);
+    }
+    document.querySelector('.header__nav > li').classList.add('actived');
+    // console.log(streamData[0].game.name);
+    // console.log(streamData);
+  };
+}
 
 function getScreencast() {
   const xhr = new XMLHttpRequest();
@@ -46,5 +46,5 @@ function getScreencast() {
   };
 }
 
-// getTopGames();
+getTopGames();
 getScreencast();
