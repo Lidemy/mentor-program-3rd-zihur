@@ -1,5 +1,32 @@
-// API https://api.twitch.tv/kraken/streams/
-// u2i5e5oy5cwidtrgmt44nf110ty1vd
+const gameName = [];
+function getScreencast() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('get', `https://api.twitch.tv/kraken/streams/?game=${gameName[0]}`);
+  xhr.setRequestHeader('Client-ID', 'u2i5e5oy5cwidtrgmt44nf110ty1vd');
+  xhr.send();
+  xhr.onload = () => {
+    const streamData = JSON.parse(xhr.response).streams;
+    document.querySelector('.title').innerText = gameName[0]; // eslint-disable-line prefer-destructuring
+    for (let i = 0; i < 20; i += 1) {
+      const newLink = document.createElement('a');
+      newLink.classList.add('live-game__box');
+      newLink.setAttribute('href', streamData[i].channel.url);
+      newLink.setAttribute('target', '_blank');
+      newLink.setAttribute('alt', "Twitch's livestream");
+      newLink.innerHTML = `
+        <img class="live-game__screencast" src=${streamData[i].preview.medium}>
+        <div class="live-game__content">
+          <img class="live-game__avatar" src=${streamData[i].channel.logo}>
+          <div class="live-game__info-block">
+            <div class="live-game__title">${streamData[i].channel.status}</div>
+            <div class="live-game__streamer">${streamData[i].channel.name}</div>
+          </div>
+        </div>
+      `;
+      document.querySelector('.live-game').appendChild(newLink);
+    }
+  };
+}
 
 function getTopGames() {
   const xhr = new XMLHttpRequest();
@@ -12,39 +39,11 @@ function getTopGames() {
       const newList = document.createElement('li');
       newList.innerText = streamData[i].game.name;
       document.querySelector('.header__nav').appendChild(newList);
+      gameName.push(streamData[i].game.name);
     }
     document.querySelector('.header__nav > li').classList.add('actived');
-    // console.log(streamData[0].game.name);
-    // console.log(streamData);
-  };
-}
-
-function getScreencast() {
-  const xhr = new XMLHttpRequest();
-  xhr.open('get', 'https://api.twitch.tv/kraken/streams/');
-  xhr.setRequestHeader('Client-ID', 'u2i5e5oy5cwidtrgmt44nf110ty1vd');
-  xhr.send();
-  xhr.onload = () => {
-    const streamData = JSON.parse(xhr.responseText).streams;
-    for (let i = 0; i < 20; i += 1) {
-      const newImg = document.createElement('img');
-      const newDiv = document.createElement('div');
-      newImg.setAttribute('src', streamData[i].preview.medium);
-      newDiv.classList.add('live-game__box');
-      newDiv.innerHTML = `
-        <img class="live-game__screencast" src=${streamData[i].preview.medium}>
-        <div class="live-game__content">
-          <img class="live-game__avatar" src=${streamData[i].channel.logo}>
-          <div class="live-game__info-block">
-            <div class="live-game__title">${streamData[i].channel.status}</div>
-            <div class="live-game__streamer">${streamData[i].channel.name}</div>
-          </div>
-        </div>
-      `;
-      document.querySelector('.live-game').appendChild(newDiv);
-    }
+    getScreencast();
   };
 }
 
 getTopGames();
-getScreencast();

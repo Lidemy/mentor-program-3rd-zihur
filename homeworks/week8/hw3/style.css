@@ -22,8 +22,9 @@ body {
 }
 .header__logo {
   font-size: 1.25rem;
+  min-width: 165px;
   color: #fff;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 .header__nav {
   display: flex;
