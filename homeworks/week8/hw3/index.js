@@ -51,6 +51,7 @@ function getTopGames(callback) {
 }
 
 getTopGames(getScreencast);
+
 ul.addEventListener('click', (e) => {
   gameSelect = e.target.innerText;
   getScreencast();
