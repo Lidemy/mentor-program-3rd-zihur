@@ -53,6 +53,8 @@ function getTopGames(callback) {
 getTopGames(getScreencast);
 
 ul.addEventListener('click', (e) => {
+  document.querySelector('.header__nav .actived').classList.remove('actived');
+  e.target.classList.add('actived');
   gameSelect = e.target.innerText;
   getScreencast();
 });
