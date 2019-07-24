@@ -1,0 +1,263 @@
+/* 通用類 */
+* {
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+body {
+  background-color: rgb(0, 14, 34);
+  color: rgb(214, 220, 228);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+}
+.invisible {
+  display: none;
+}
+.flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 導覽列 */
+.navbar {
+  width: 100%;
+  background-color: rgb(0, 30, 85);
+  padding: 10px 20px;
+  color: white;
+}
+.wrap {
+  max-width: 800px;
+  margin: auto;
+}
+h1 {
+  margin: 0;
+  font-family: 'Cormorant Garamond';
+  font-weight: normal;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.navbar__list a {
+  margin-left: auto;
+  border: 2px solid rgba(255, 255, 255, 0);
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: border 0.5s;
+}
+.navbar__list a:hover {
+border: 2px solid white;
+border-radius: 3px;
+}
+/* 導覽列 END */
+
+.main {
+  padding: 10px 20px;
+}
+.main > .wrap {
+  max-width: 600px;
+  margin: auto;
+}
+.mention {
+  color: rgb(233, 113, 0);
+}
+
+/* 評論區 */
+.comments {
+  border: 3px solid rgba(214, 220, 228, 0);
+  background-color: cornsilk;
+  height: 160px;
+  padding: 5px;
+  position: relative;
+}
+.comments__textarea {
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+}
+.comments input {
+  display: block;
+  width: 100px;
+  margin: 5px auto;
+  padding: 5px;
+  background: none;
+  border: 2px  solid rgb(0, 30, 85);
+  color: rgb(0, 30, 85);
+  transition: all 0.3s
+}
+.comments input:hover {
+  display: block;
+  width: 100px;
+  margin: 5px auto;
+  padding: 5px;
+  color: white;
+  background: rgb(0, 30, 85);
+  border: 2px  solid rgb(0, 30, 85);
+}
+.unlogin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(214, 220, 228);
+  background-color: rgba(0, 0, 0);
+  opacity: 0;
+}
+.unlogin:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  opacity: 0.8;
+  border: 3px solid rgb(214, 220, 228);
+  background-color: rgba(0, 0, 0);
+  transition: all 0.5s;
+}
+/* 評論區 END */
+/* 留言板 */
+.msgheader {
+  display: flex;
+  font-weight: normal;
+  border-bottom: 2px solid rgb(0, 42, 121);
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.msgtitle {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+.msg__page {
+  display: flex;
+  list-style: none;
+  margin: 3px 0;
+  padding: 0px;
+}
+.msg__num {
+  color: rgb(160, 160, 160);
+  margin: 0 5px;
+}
+.msg__num--actived {
+  color: white;
+}
+.msgcard {
+  background-color: rgb(0, 30, 85);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.msgcard__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid rgb(0, 14, 34);
+  padding: 5px;
+}
+.avatar {
+  width: 28px;
+}
+.msgcard__nickname {
+  margin: 0;
+}
+.msgcard__datetime {
+  color: gray;
+  font-size: .9rem;
+  margin: 0;
+  margin-left: auto;
+}
+.msgcard__content {
+  padding: 5px;
+}
+.msgcard__btn-edit, .msgcard__btn-delete, .msgcard__btn-send {
+  font-size: .8rem;
+  border-radius: 5px;
+  padding: 5px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s
+}
+.msgcard__btn-edit:hover, .msgcard__btn-delete:hover, .msgcard__btn-send:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: rgb(0, 30, 85);
+}
+.msgcard__btn-edit:active, .msgcard__btn-delete:active, .msgcard__btn-send:active,
+.msgcard__btn-edit:focus, .msgcard__btn-delete:focus, .msgcard__btn-send:active {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 30, 85);
+  outline: none;
+}
+.msgcard__textarea {
+  color: white;
+  display: block;
+  width: 100%;
+  height: 100px;
+  margin: 5px auto;
+  padding: 5px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+/* 留言板 END */
+/* 註冊頁面 */
+.signup {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 20px;
+}
+form input {
+  width: 100%;
+  color: rgb(214, 220, 228);
+  border: none;
+  border-bottom: 1px solid rgb(214, 220, 228);
+  background: none;
+  outline: none;
+  padding: 3px 0;
+}
+form input[type="radio"] {
+  display: none;
+}
+.sexuality > label {
+  margin: 10px;
+}
+.sexuality > label::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(214, 220, 228);
+  border-radius: 50%;
+  margin: 3px;
+  vertical-align: text-bottom;
+}
+.sexuality > label:hover::before, input[type="radio"]:checked + label::before {
+  content: "";
+  background: rgb(214, 220, 228);
+}
+.submit {
+  width: 100px;
+  height: 40px;
+  margin-left: auto;
+  border: 1px solid rgb(214, 220, 228);
+  transition: all 0.5s;
+}
+.submit:hover {
+  color: rgb(0, 14, 34);
+  background: rgb(214, 220, 228);
+  border: 1px solid rgb(214, 220, 228);
+}
+/* 註冊頁面 END */
+/* 登入頁面 */
+.login {
+  display: flex;
+  flex-direction: column;
+}
+/* 登入頁面 END*/
