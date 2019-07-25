@@ -19,8 +19,9 @@ if (getCookie('certificate') === undefined) {
     window.location = './login.php';
   });
 } else {
-  form.addEventListener('submit', () => {
+  form.addEventListener('submit', (e) => {
     if (document.querySelector('textarea').value === '') {
+      e.preventDefault();
       alert('你並沒有留言喔！');
     } else {
       alert('已經幫你把留言放上囉！');

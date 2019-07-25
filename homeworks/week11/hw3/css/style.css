@@ -28,7 +28,8 @@ body {
   margin: auto;
 }
 h1 {
-  margin: 0;
+  font-size: 1.8rem;
+  margin: 0 auto 0 0;
   font-family: 'Cormorant Garamond';
   font-weight: normal;
 }
@@ -41,7 +42,7 @@ a {
   border: 2px solid rgba(255, 255, 255, 0);
   text-decoration: none;
   color: white;
-  padding: 10px 20px;
+  padding: 5px 10px;
   transition: border 0.5s;
 }
 .navbar__list a:hover {
