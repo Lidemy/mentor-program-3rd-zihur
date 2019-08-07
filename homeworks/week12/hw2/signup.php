@@ -29,15 +29,15 @@
       <p>噢！提醒你一下，畢竟酒吧是個公開場合</p>
       <p class="mention">所以註冊時請勿使用任何真實的帳號或密碼喔！</p>
       <form action="./handle/handle_signup.php" method="post" class="signup">
-        <label>暱稱：<input type="text" name="nickname" placeholder="請輸入暱稱"></label>
-        <label>帳號：<input type="text" name="account" placeholder="請輸入帳號"></label>
-        <label>密碼：<input type="password" name="password" placeholder="請輸入密碼"></label>
+        <label>暱稱：<input type="text" class="signup__question" name="nickname" placeholder="請輸入暱稱"></label>
+        <label>帳號：<input type="text" class="signup__question" name="account" placeholder="請輸入帳號"></label>
+        <label>密碼：<input type="password" class="signup__question" name="password" placeholder="請輸入密碼"></label>
         <div class="sexuality">
           <p>生理性別：</p>
           <input type="radio" name="sexuality" id="sexuality1" value="男性"><label for="sexuality1">男性</label>
           <input type="radio" name="sexuality" id="sexuality2" value="女性"><label for="sexuality2">女性</label>
         </div>
-        <input type="submit" value="送出 ->" class="submit">
+        <input type="submit" value="送出 ->" class="signup__submit">
       </form>
     </div>
   </main>

@@ -30,9 +30,9 @@
     // 編輯刪除區塊
       if ($row['certificate'] === $certificate || $auth === 'admin' || $auth === 'super admin') {
     ?>
-    <input type="button" value="Edit 編輯" class="msgcard__btn-edit" data-post_id="<?= $row['post_id']?>">
+    <button class="msgcard__btn-edit" data-post_id="<?= $row['post_id']?>">Edit 編輯</button>
     <a href="./handle/handle_delete.php?post_id=<?= $row['post_id']?>">
-      <input type="button" value="Delete 刪除" class="msgcard__btn-delete">
+      <button type="button" value="Delete 刪除" class="msgcard__btn-delete">Delete 刪除</button>
     </a>
     <?php } ?>
   </section>

@@ -176,6 +176,7 @@ border-radius: 3px;
 .msgcard__btn-edit, .msgcard__btn-delete, .msgcard__btn-send {
   font-size: .8rem;
   border-radius: 5px;
+  margin-bottom: 5px;
   padding: 5px;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -197,7 +198,7 @@ border-radius: 3px;
   display: block;
   width: 100%;
   height: 100px;
-  margin: 5px auto;
+  margin: 10px auto;
   padding: 5px;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -214,7 +215,7 @@ border-radius: 3px;
 label {
   margin-bottom: 20px;
 }
-form input {
+.signup__question, .login__question {
   width: 100%;
   color: rgb(214, 220, 228);
   border: none;
@@ -243,14 +244,16 @@ form input[type="radio"] {
   content: "";
   background: rgb(214, 220, 228);
 }
-.submit {
+.signup__submit, .login__submit {
   width: 100px;
   height: 40px;
+  color: rgb(214, 220, 228);
   margin-left: auto;
   border: 1px solid rgb(214, 220, 228);
+  background: none;
   transition: all 0.5s;
 }
-.submit:hover {
+.signup__submit:hover, .login__submit:hover {
   color: rgb(0, 14, 34);
   background: rgb(214, 220, 228);
   border: 1px solid rgb(214, 220, 228);

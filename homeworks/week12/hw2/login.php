@@ -28,9 +28,9 @@
       <p>很抱歉，因為客人太多了，能不能告訴我你是誰呢？</p>
       <p>如果我認錯了，也歡迎成為我們的會員喔！</p>
       <form action="./handle/handle_login.php" method="post" class="login">
-        <label>帳號：<input type="text" name="account" placeholder="請輸入帳號"></label>
-        <label>密碼：<input type="password" name="password" placeholder="請輸入密碼"></label>
-        <input type="submit" value="登入 ->" class="submit">
+        <label>帳號：<input type="text" class="login__question" name="account" placeholder="請輸入帳號"></label>
+        <label>密碼：<input type="password" class="login__question" name="password" placeholder="請輸入密碼"></label>
+        <input type="submit" value="登入 ->" class="login__submit">
       </form>
     </div>
   </main>
