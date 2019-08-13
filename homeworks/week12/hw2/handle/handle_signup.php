@@ -27,7 +27,8 @@
       die('請選擇男性或女性');    // 雖然想不到其他可能，但為了保險而添加
   }
   // 將資料寫入資料庫
-  $stmt = $conn->prepare("INSERT INTO zihur_users(nickname, account, password, sexuality, avatar) VALUES (?, ?, ?, ?, ?)");
+  $stmt = $conn->prepare("INSERT INTO zihur_users(nickname, account, password, sexuality, avatar)
+                          VALUES (?, ?, ?, ?, ?)");
   $stmt->bind_param('sssss', $nickname, $account, $password, $sexuality, $avatar);
   if ($stmt->execute()) {
     echo "<script>alert('註冊成功，請前往登入唷');

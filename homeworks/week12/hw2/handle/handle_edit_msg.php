@@ -7,23 +7,25 @@
     header('Location: ../index.php');
     die();
   }
-  if (!isset($_GET['post_id']) || !isset($_GET['comments'])) {
+  if (!isset($_POST['post_id']) || !isset($_POST['comments'])) {
     header('Location: ../index.php');
     die();
   }
-  $post_id = $_GET['post_id'];
-  $comments = $_GET['comments'];
+  $post_id = $_POST['post_id'];
+  $comments = $_POST['comments'];
+  csrfPrevent();
   // 撈出資料比對是否本人或判斷是否有足夠權限更改資料
-  $stmt = $conn->prepare("SELECT zihur_comments.*, zihur_users_certificate.*
-                          FROM zihur_comments JOIN zihur_users USING (user_id)
-                          JOIN zihur_users_certificate USING (account)
-                          WHERE certificate LIKE ? AND post_id LIKE ?");
+  $stmt = $conn->prepare("SELECT comments.*
+                          FROM zihur_comments as comments
+                          JOIN zihur_users_certificate as certificate
+                          USING (user_id)
+                          WHERE certificate = ? AND comments.id = ?");
   $stmt->bind_param('si', $certificate, $post_id);
   $stmt->execute();
   $result = $stmt->get_result();
-  if ($result->num_rows > 0 || $auth === 'admin' || $auth === 'super admin') {
+  if ($result->num_rows > 0 || $auth === 'admin' || $auth === 'super_admin') {
     $stmt_update = $conn->prepare("UPDATE zihur_comments SET content = ?
-                                    WHERE post_id = ?");
+                                    WHERE id = ?");
     $stmt_update->bind_param('si', $comments, $post_id);
     checkConn($stmt_update->execute(), $conn);
   }

@@ -1,7 +1,7 @@
 <?php
   require_once('./conn.php');
   require_once('./handle/handle_is_login.php');
-  if ($auth !== 'super admin') {
+  if ($auth !== 'super_admin') {
     header('Location: ../index.php');
     die('你的權限不足以進入後台');
   }
@@ -9,7 +9,7 @@
 ?>
 <?php
   // 處理 POST
-  $error_msg = "";
+  $result_msg = "";
   if (isset($_POST['authority'])) {
     $authority = $_POST['authority'];
     $account = $_POST['account'];
@@ -18,9 +18,9 @@
       $result = $conn->query($sql);
     }
     if ($result) {
-      $error_msg = '<P class="mention">已經成功更新囉</p>';
+      $result_msg = '<P class="mention">已經成功更新囉</p>';
     } else {
-      $error_msg = '<P>似乎出了點問題，請聯繫後端</p>';
+      $result_msg = '<P>似乎出了點問題，請聯繫後端</p>';
     }
   }
 ?>
@@ -58,7 +58,7 @@
       </table>
       <input type="submit" class="member__submit">
     </form>
-    <?= $error_msg ?>
+    <?= $result_msg ?>
   </div>
 </body>
 </html>

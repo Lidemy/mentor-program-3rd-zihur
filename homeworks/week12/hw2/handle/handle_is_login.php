@@ -1,11 +1,13 @@
 <?php
   // 透過 certificate 判斷是誰，並賦予相對應的權限
   $auth = 'visitor';
+  $csrfToken = '';
   if (isset($_COOKIE['certificate'])) {
     $certificate = $_COOKIE['certificate'];
-    $stmt = $conn->prepare("SELECT zihur_users_certificate.*, authority, user_id
-                            FROM zihur_users_certificate 
-                            JOIN zihur_users ON zihur_users_certificate.account = zihur_users.account
+    $stmt = $conn->prepare("SELECT certificate.*, authority
+                            FROM zihur_users_certificate as certificate
+                            JOIN zihur_users as users 
+                            ON certificate.user_id = users.id
                             WHERE certificate = ?");
     $stmt->bind_param('s', $certificate);
     $stmt->execute();
@@ -16,5 +18,9 @@
     }
   } else {
     $certificate = 'none';
+    $user_id = "";
+  }
+  if (isset($_COOKIE['csrfToken'])) {
+    $csrfToken = $_COOKIE['csrfToken'];
   }
 ?>

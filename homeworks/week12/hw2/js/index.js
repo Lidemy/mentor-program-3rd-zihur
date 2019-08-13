@@ -55,23 +55,22 @@ const content = {};// 利用物件建立訊息容器
 const msgboard = document.querySelector('.msgboard');
 msgboard.addEventListener('click', (e) => {
   if (!e.target.classList.contains('msgcard__btn-edit')) return;
-
+  e.stopImmediatePropagation();
   let target = '';
   const postId = e.target.getAttribute('data-post_id');
-
-  // 判斷是否為 p 元素
+  // 判斷父元素下的第二個元素是否為 p 元素
   if (e.target.parentNode.children[1].nodeName === 'P') {
     content[postId] = e.target.parentNode.querySelector('.msgcard__content').innerText;
   }
   const editForm = `
-  <form action="./handle/handle_edit_msg.php">
+  <form method="POST" action="./handle/handle_edit_msg.php">
     <textarea name="comments" class="msgcard__textarea">${content[postId]}</textarea>
     <div>
       <input type="text" name="post_id" value="${postId}" class="invisible">
+      <input type="text" class="invisible" name="csrfToken" value="${getCookie('csrfToken')}">
       <input type="submit" value="Change 更改留言" class="msgcard__btn-send">
     </div>
   </form>`;
-
   if (!e.target.classList.contains('editing')) {
     e.target.innerText = 'Cancel 取消編輯';
     target = e.target.parentNode.querySelector('.msgcard__content');
@@ -82,4 +81,11 @@ msgboard.addEventListener('click', (e) => {
     target.outerHTML = `<p class="msgcard__content">${nl2br(escapeHtml(content[postId]))}</p>`;
   }
   e.target.classList.toggle('editing');
+});
+
+// 處理子留言回覆
+msgboard.addEventListener('click', (e) => {
+  if (!e.target.parentNode.classList.contains('msgcard__inside')) return;
+  e.stopPropagation();
+  e.target.parentNode.querySelector('form').classList.toggle('show');
 });

@@ -12,7 +12,7 @@
             echo '<a href="./login.php">登入</a>';
             echo '<a href="./signup.php">註冊</a>';
             break;
-          case 'super admin':
+          case 'super_admin':
             echo '<a href="./admin.php">管理權限</a>';
             echo '<a href="./handle/handle_logout.php">登出</a>';
             break;

@@ -1,8 +1,9 @@
 <?php
   require_once('../conn.php');
   require_once('./handle_is_login.php');
+  require_once('../utils.php');
   // 確認是否登入，否則直接結束
-  if ($auth === 'visiter') {
+  if ($auth === 'visitor') {
     header('Location: ../login.php');
     exit('尚未登入');
   }
@@ -17,9 +18,21 @@
     header('Location: ../index.php');
     die('留言內容不得為空白');
   }
+  if (isset($_POST['parent_id'])) {
+    $parent_id = $_POST['parent_id'];
+  } else {
+    $parent_id = 0;
+  }
+  if (isset($_POST['layer'])) {
+    $layer = $_POST['layer'];
+  } else {
+    $layer = 0;
+  }
+  csrfPrevent();
   // 寫入資料庫
-  $stmt = $conn->prepare("INSERT INTO zihur_comments(user_id, content) VALUES(?, ?)");
-  $stmt->bind_param('is', $user_id, $comments);
+  $stmt = $conn->prepare("INSERT INTO zihur_comments(user_id, parent_id, layer, content) 
+                          VALUES(?, ?, ?, ?)");
+  $stmt->bind_param('iiis', $user_id, $parent_id, $layer, $comments);
   if ($stmt->execute()) {
     header('Location: ../index.php');
     $conn->close();

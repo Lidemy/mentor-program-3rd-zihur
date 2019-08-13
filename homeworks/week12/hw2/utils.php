@@ -1,5 +1,5 @@
 <?php
-  // 判斷連線寫入是否成功的 function，防錯機制，成功便轉回首頁。(boolean, connect 的資料庫)
+  // 判斷連線寫入是否成功的 function，防錯機制，成功便轉回首頁。
   function checkConn($result, $conn) {
     if ($result) {
       header('Location: ../index.php');
@@ -17,7 +17,28 @@
     echo "<script>window.location = " . $location . "</script>";
   }
   // 簡化預防 XSS 輸出的函式
-  function outputPreventStr($str) {
+  function xssPreventStr($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'utf-8');
+  }
+  // 產生隨機亂數，並建立通行證寫入資料庫
+  function randomToken() {
+    $word = '023456789abcdefghijkmnopqrstuvwxyz';  // 字典檔，排除 1 和 l
+    $length = strlen($word);
+    $certificate = '';
+    for ($i = 0; $i < 32; $i += 1) {
+      $certificate .= $word[rand(0, $length-1)];
+    };
+    return $certificate;
+  }
+  // 預防 CSRF 攻擊
+  function csrfPrevent() {
+    if (!isset($_COOKIE['csrfToken']) || !isset($_POST['csrfToken'])) {
+      header('Location: ../index.php');
+      die('CSRF 錯誤');
+    }
+    if ($_COOKIE['csrfToken'] !== $_POST['csrfToken']) {
+      header('Location: ../index.php');
+      die('CSRF 錯誤');
+    }
   }
 ?>

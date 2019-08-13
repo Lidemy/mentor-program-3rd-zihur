@@ -6,7 +6,8 @@
     $page = 1;
   }
   // 動態更新分頁數量及上下頁，頁面呈現最多5頁，當前頁會永遠出現在數字中間
-  $sql_count = "SELECT COUNT(post_id) AS `count` FROM zihur_comments WHERE zihur_comments.is_deleted != 1";
+  $sql_count = "SELECT COUNT(id) AS `count` FROM zihur_comments
+                WHERE zihur_comments.is_deleted != 1 AND parent_id = 0";
   $result_count = $conn->query($sql_count);
   $row = $result_count->fetch_assoc();
   $total_page = ceil($row['count'] / 20);
