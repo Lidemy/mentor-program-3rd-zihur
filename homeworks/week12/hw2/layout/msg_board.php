@@ -22,7 +22,6 @@
   }
   // 顯示使用者的按讚狀態，不清楚是不是該拉出去寫成 layout 區塊
   function userThumb($row, $user_id, $conn) {
-    if (empty($user_id)) return;
     $stmt_thumb = $conn->prepare("SELECT thumbs.*
                                   FROM zihur_thumbs AS thumbs 
                                   WHERE post_id = ? AND user_id = ? AND is_liked = 'like'");

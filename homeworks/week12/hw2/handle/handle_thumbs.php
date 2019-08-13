@@ -4,7 +4,8 @@
   require_once('../utils.php');
   // 確認是否登入，否則直接結束
   if ($auth === 'visitor') {
-    header('Location: ../login.php');
+    echo "<script>alert('你還沒登入唷！');
+    document.location.href='../login.php'</script>";
     exit('尚未登入');
   }
   if (!isset($_GET['post_id'])) {
