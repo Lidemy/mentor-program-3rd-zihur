@@ -14,9 +14,11 @@
     $authority = $_POST['authority'];
     $account = $_POST['account'];
     for ($i = 0; $i < count($account); $i += 1) {
-      $sql = "UPDATE zihur_users SET authority = '$authority[$i]' WHERE account = '$account[$i]'";
-      $result = $conn->query($sql);
-    }
+      $stmt = $conn->prepare("UPDATE zihur_users 
+                              SET authority = ? 
+                              WHERE account = ?");
+      $stmt->bind_param('ss', $authority[$i], $account[$i]);
+      $result = $stmt->execute();
     if ($result) {
       $result_msg = '<P class="mention">已經成功更新囉</p>';
     } else {
