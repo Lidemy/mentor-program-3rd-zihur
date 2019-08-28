@@ -1,212 +1,276 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 微軟正黑體, sans-serif;
+  line-height: 1.4rem;
+  text-align: center;
+}
 .contain {
   max-width: 960px;
   margin: auto;
+  padding: 0 10px;
 }
 .contain-fluid {
   max-width: 100%;
 }
-.wrap {
+.box {
+  background: #66BAB7;
+}
+.row {
+  color: rgb(255, 255, 240);
   display: flex;
-  width: 100%;
-  margin: -10px;
+  margin: 0 -10px;
+  flex-wrap: wrap;
 }
 .col {
   flex-grow: 1;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-1 {
   width: 8.33%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-2 {
   width: 16.66%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
+  margin: 2px 0px;
 }
 .col-3 {
   width: 25%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-4 {
   width: 33.33%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-5 {
   width: 41.66%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-6 {
   width: 50%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-7 {
   width: 58.33%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-8 {
   width: 66.66%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-9 {
   width: 75%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-10 {
   width: 83.33%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-11 {
   width: 91.66%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 .col-12 {
   width: 100%;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 2px 0px;
 }
 
-@media (min-width: 576px) and (max-width: 767.99px) {
+@media (max-width: 720px) {
   .col-md {
     flex-grow: 1;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-1 {
     width: 8.3%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-2 {
     width: 16.6%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-3 {
     width: 25%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-4 {
     width: 33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-6 {
     width: 50%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-7 {
     width: 58.33%;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-8 {
     width: 66.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-9 {
     width: 75%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-10 {
     width: 83.33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-11 {
     width: 91.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-md-12 {
     width: 100%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
 }
-@media (min-width: 768px) and (max-width: 991.99px) {
+@media (max-width: 991.99px) {
   .col-lg {
     flex-grow: 1;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-1 {
     width: 8.3%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-2 {
     width: 16.6%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-3 {
     width: 25%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-4 {
     width: 33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-6 {
     width: 50%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-7 {
     width: 58.33%;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-8 {
     width: 66.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-9 {
     width: 75%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-10 {
     width: 83.33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-11 {
     width: 91.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-lg-12 {
     width: 100%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
 }
-@media (min-width: 992px) and (max-width: 1199.99px) {
+@media (max-width: 1199.99px) {
   .col-xl {
     flex-grow: 1;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-1 {
     width: 8.3%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-2 {
     width: 16.6%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-3 {
     width: 25%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-4 {
     width: 33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-6 {
     width: 50%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-7 {
     width: 58.33%;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-8 {
     width: 66.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-9 {
     width: 75%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-10 {
     width: 83.33%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-11 {
     width: 91.66%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
   .col-xl-12 {
     width: 100%;
-    padding: 5px;
+    padding: 0 5px;
+    margin: 2px 0px;
   }
 }
