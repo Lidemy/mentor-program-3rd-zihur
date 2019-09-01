@@ -6,3 +6,9 @@ body {
   background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
   height: 100vh;
 }
+.todolist__title {
+  color: rgb(182, 26, 26);
+}
+.list-item {
+  flex-grow: 1;
+}

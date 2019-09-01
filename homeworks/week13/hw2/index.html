@@ -10,15 +10,36 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+  <script src="js/main.js" defer></script>
   <title>Document</title>
 </head>
 <body>
   <div class="container pt-5 text-center">
     <div class="card border-light mb-3">
-      <div class="card-header display-1 text-black-50">TO-DO List</div>
-      <div class="card-body">
-        <input type="text" class="add-list">123
-        <button type="button" class="btn btn-outline-primary">Primary</button>
+      <div class="card-header display-1 todolist__title">TO-DO List</div>
+      <div class="input-group input-group-lg my-5 px-3">
+        <input type="text" class="form-control" placeholder="Add something todo..." aria-label="Add something todo..." aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="button-add">Add</button>
+        </div>
+      </div>
+      <p class="h4">Here is 0 pending items</p>
+      <div class="list__wrap">
+        <div class="input-group mb-3 px-3 flex-fill">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="checkbox" aria-label="Checkbox for following text input">
+            </div>
+          </div>
+          <div class="list-item text-secondary border-top border-bottom px-3 mb-0 align-items-center d-flex">
+            <p class="mb-0">Give it a click if you like.</p>
+          </div>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
