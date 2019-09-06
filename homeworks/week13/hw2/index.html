@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
   <script src="js/main.js" defer></script>
@@ -24,19 +24,19 @@
         </div>
       </div>
       <p class="h4">Here is 0 pending items</p>
-      <div class="list__wrap">
-        <div class="input-group mb-3 px-3 flex-fill">
-          <div class="input-group-prepend">
+      <div class="list">
+        <div class="input-group mb-3 px-3">
+          <div class="input-group-prepend alert-info">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <label class="mb-0"><input type="checkbox" class="list__checked" aria-label="Checkbox for following text input"></label>
             </div>
           </div>
-          <div class="list-item text-secondary border-top border-bottom px-3 mb-0 align-items-center d-flex">
+          <div class="list__text text-secondary">
             <p class="mb-0">Give it a click if you like.</p>
           </div>
-          <div class="input-group-append">
-            <button type="button" class="btn btn-danger" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+          <div class="input-group-append list__close">
+            <button type="button" class="btn btn-danger close p-2" aria-label="Close">
+              <span aria-hidden="true" aria-label="Close">&times;</span>
             </button>
           </div>
         </div>
