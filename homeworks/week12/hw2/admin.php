@@ -19,10 +19,11 @@
                               WHERE account = ?");
       $stmt->bind_param('ss', $authority[$i], $account[$i]);
       $result = $stmt->execute();
-    if ($result) {
-      $result_msg = '<P class="mention">已經成功更新囉</p>';
-    } else {
-      $result_msg = '<P>似乎出了點問題，請聯繫後端</p>';
+      if ($result) {
+        $result_msg = '<P class="mention">已經成功更新囉</p>';
+      } else {
+        $result_msg = '<P>似乎出了點問題，請聯繫後端</p>';
+      }
     }
   }
 ?>

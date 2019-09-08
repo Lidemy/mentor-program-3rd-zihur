@@ -1,9 +1,9 @@
 <?php
   // 編輯刪除區塊函式，這邊的函式自己感覺有點微妙，有種為了寫而寫的感覺
-  function moreOption($row, $user_id, $auth) {
+  function moreOption($row, $user_id, $auth, $csrfToken) {
     if ($row['user_id'] === $user_id || $auth === 'admin' || $auth === 'super_admin') {
       echo "<button class='msgcard__btn-edit' data-post_id='${row['id']}'>Edit 編輯</button>";
-      echo "<a href='./handle/handle_delete.php?post_id=${row['id']}'>";
+      echo "<a href='./handle/handle_delete.php?post_id=${row['id']}&csrfToken=${csrfToken}'>";
       echo   "<button class='msgcard__btn-delete'>Delete 刪除</button>";
       echo "</a>";
     }
@@ -97,7 +97,7 @@
     </div>
     <p class="msgcard__content"><?= nl2br(xssPreventStr($row['content'])) ?></p>
     <?php
-      moreOption($row, $user_id, $auth);
+      moreOption($row, $user_id, $auth, $csrfToken);
       userThumb($row, $user_id, $conn);
       createReplyForm($row, $csrfToken);
     ?>
@@ -118,7 +118,7 @@
       </div>
       <p class="msgcard__content"><?= nl2br(xssPreventStr($row_reply['content'])) ?></p>
       <?php
-        moreOption($row_reply, $user_id, $auth);//                                 <= 比對並叫出編輯刪除等按鈕
+        moreOption($row_reply, $user_id, $auth, $csrfToken);//                                 <= 比對並叫出編輯刪除等按鈕
         userThumb($row_reply, $user_id, $conn);//                 <= 比對並叫出按讚按鈕
         createReplyForm($row_reply, $csrfToken, $layer);//                    <= 建立回文表單
       ?>

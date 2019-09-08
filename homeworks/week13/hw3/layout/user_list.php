@@ -1,7 +1,7 @@
 <?php
   $sql = "SELECT *
           FROM zihur_users as users
-          WHERE id !== '$user_id'";
+          WHERE id != '$user_id'";
   $result = $conn->query($sql);
   while ($row = $result->fetch_assoc()) {
 ?>

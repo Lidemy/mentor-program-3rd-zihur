@@ -32,12 +32,19 @@
   }
   // 預防 CSRF 攻擊
   function csrfPrevent() {
-    if (!isset($_COOKIE['csrfToken']) || !isset($_POST['csrfToken'])) {
+    $csrfToken = '';
+    if (!isset($_COOKIE['csrfToken'])) {
       header('Location: ../index.php');
       die('CSRF 錯誤');
     }
-    if ($_COOKIE['csrfToken'] !== $_POST['csrfToken']) {
-      header('Location: ../index.php');
+    if (isset($_POST['csrfToken'])) {
+      $csrfToken = $_POST['csrfToken'];
+    }
+    if (isset($_GET['csrfToken'])) {
+      $csrfToken = $_GET['csrfToken'];
+    }
+    if ($_COOKIE['csrfToken'] !== $csrfToken) {
+      // header('Location: ../index.php');
       die('CSRF 錯誤');
     }
   }
