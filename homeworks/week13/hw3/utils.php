@@ -44,7 +44,7 @@
       $csrfToken = $_GET['csrfToken'];
     }
     if ($_COOKIE['csrfToken'] !== $csrfToken) {
-      // header('Location: ../index.php');
+      header('Location: ../index.php');
       die('CSRF 錯誤');
     }
   }

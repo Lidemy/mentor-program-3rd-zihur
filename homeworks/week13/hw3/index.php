@@ -13,6 +13,7 @@
   <link href="./css/normalized.css" rel="stylesheet">
   <link href="./css/style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/39b89998cd.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
   <script src="./js/index.js" defer></script>
   <title>Bartender Board</title>
 </head>

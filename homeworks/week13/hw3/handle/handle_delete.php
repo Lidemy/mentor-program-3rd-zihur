@@ -1,31 +1,46 @@
 <?php
   require_once('../conn.php');
   require_once('./handle_is_login.php');
-  require_once('../utils.php');  
+  require_once('../utils.php');
   // 判斷是否陌生訪客，是的話直接退回首頁
-  if ($auth === 'visitor') {
-    header('Location: ../index.php');
-    die();
-  }
-  if (!isset($_GET['post_id'])) {
-    header('Location: ../index.php');
-    die();
-  }
+  if (!isset($_SESSION['user_id'])) exit();
+  if (!isset($_POST['post_id'])) exit();
   csrfPrevent();
-  $post_id = $_GET['post_id'];
+  $post_id = $_POST['post_id'];
   // 撈出資料比對是否本人或判斷是否有足夠權限刪除資料
   $stmt = $conn->prepare("SELECT comments.*
-                          FROM zihur_comments as comments
-                          WHERE user_id = ? AND comments.id = ?");
+                            FROM zihur_comments as comments
+                           WHERE user_id = ? AND comments.id = ?");
   $stmt->bind_param('ii', $user_id, $post_id);
   $stmt->execute();
   $result = $stmt->get_result();
-  if ($result->num_rows > 0 || $auth === 'admin' || $auth === 'super_admin') {
-    $stmt_delete = $conn->prepare("UPDATE zihur_comments SET is_deleted = 1
-                                   WHERE id = ?");
-    $stmt_delete->bind_param('i', $post_id);
-    checkConn($stmt_delete->execute(), $conn);
-  }
-  header('Location: ../index.php');
-  exit('權限不足，你 4 不 4 偷改 post_id');
+  if (!($result->num_rows > 0 || $auth === 'admin' || $auth === 'super_admin')) {
+    $res = array(
+      'status'  => 0,
+      'msg'     => '權限不足，你 4 不 4 偷改 post_id'
+    );
+    echo '123';
+    echo json_encode($res);
+    exit();
+  };
+  // 執行刪除功能
+  $stmt_delete = $conn->prepare("UPDATE zihur_comments
+                                    SET is_deleted = 1
+                                  WHERE id = ?");
+  $stmt_delete->bind_param('i', $post_id);
+  $result_delete = $stmt_delete->execute();
+  if ($result_delete) {
+    $res = array(
+      'status'  => 1,
+      'msg'     => '已成功刪除留言'
+    );
+    echo json_encode($res);
+    exit();
+  };
+  $res = array(
+    'status'  => 0,
+    'msg'     => $conn->error
+  );
+  echo json_encode($res);
+  exit();
 ?>

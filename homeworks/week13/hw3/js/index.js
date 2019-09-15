@@ -48,6 +48,35 @@ form.addEventListener('submit', (e) => {
   }
 });
 
+// 處理刪除留言
+$('.msgcard').on('click', '.msgcard__btn-delete', e => {
+  e.stopImmediatePropagation();
+  post_id = $(e.target).data('post_id');
+  csrfToken = $(e.target).data('csrftoken');
+  $.ajax({
+    type: 'POST',
+    url: './handle/handle_delete.php',
+    data: {
+      post_id,
+      csrfToken,
+    },
+  })
+  .done(res => {
+    data = JSON.parse(res);
+    if (data.status === 1) {
+      alert(data.msg);
+      $(e.target).parent('.msgcard').remove();
+      $(e.target).parent('.msgcard__inside').remove();
+    } else {
+      alert(data.msg);
+    };
+  })
+  .fail(res => {
+    data = JSON.parse(res);
+    alert(data.msg);
+  })
+});
+
 // 處理編輯留言
 const content = {};// 利用物件建立訊息容器
 const msgboard = document.querySelector('.msgboard');
@@ -61,14 +90,8 @@ msgboard.addEventListener('click', (e) => {
     content[postId] = e.target.parentNode.querySelector('.msgcard__content').innerText;
   }
   const editForm = `
-  <form method="POST" action="./handle/handle_edit_msg.php">
-    <textarea name="comments" class="msgcard__textarea">${content[postId]}</textarea>
-    <div>
-      <input type="text" name="post_id" value="${postId}" class="invisible">
-      <input type="text" class="invisible" name="csrfToken" value="${getCookie('csrfToken')}">
-      <input type="submit" value="Change 更改留言" class="msgcard__btn-send">
-    </div>
-  </form>`;
+  <textarea name="comments" class="msgcard__textarea">${content[postId]}</textarea>
+  <input type="submit" class="msgcard__btn-send" data-post_id="${postId}" data-csrf_token="${getCookie('csrfToken')}" value="Change 更改留言">`;
   if (!e.target.classList.contains('editing')) {
     e.target.innerText = 'Cancel 取消編輯';
     target = e.target.parentNode.querySelector('.msgcard__content');
@@ -79,6 +102,30 @@ msgboard.addEventListener('click', (e) => {
     target.outerHTML = `<p class="msgcard__content">${nl2br(escapeHtml(content[postId]))}</p>`;
   }
   e.target.classList.toggle('editing');
+});
+
+$('.msgboard').on('click', ':submit', e => {
+  post_id = $(e.target).data('post_id');
+  csrfToken = $(e.target).data('csrf_token');
+  $.ajax({
+    type: 'POST',
+    url: './handle/handle_edit_msg.php',
+    data:{
+      post_id,
+      csrfToken,
+      comments: $(e.target).prev().val(),
+    }
+  })
+  .done(res => {
+    data = JSON.parse(res);
+    if (data.status === 1) {
+      alert(data.msg);
+      text = $(e.t0arget).prev().val();
+      console.log($(e.target).prev())
+      console.log($(e.target).prev().text());
+      $(e.target).prev().outerHTML(`<p>${text}</p>`);
+    }
+  })
 });
 
 // 處理子留言回覆

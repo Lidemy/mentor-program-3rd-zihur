@@ -3,13 +3,9 @@
   require_once('./handle_is_login.php');
   require_once('../utils.php');
   // 判斷是否陌生訪客，是的話直接退回首頁
-  if ($auth === 'visitor') {
-    header('Location: ../index.php');
-    die();
-  }
+  if (!isset($_SESSION['user_id'])) exit();
   if (!isset($_POST['post_id']) || !isset($_POST['comments'])) {
-    header('Location: ../index.php');
-    die();
+    exit();
   }
   $post_id = $_POST['post_id'];
   $comments = $_POST['comments'];
@@ -25,8 +21,17 @@
     $stmt_update = $conn->prepare("UPDATE zihur_comments SET content = ?
                                     WHERE id = ?");
     $stmt_update->bind_param('si', $comments, $post_id);
-    checkConn($stmt_update->execute(), $conn);
+    $res = array(
+      'status'  => 1,
+      'msg'     => '已成功編輯留言'
+    );
+    echo json_encode($res);
+    exit();
   }
-  header('Location: ../index.php');
-  exit('權限不足，你 4 不 4 偷改 post_id');
+  $res = array(
+    'status'  => 0,
+    'msg'     => '編輯留言失敗，請再試一次'
+  );
+  echo json_encode($res);
+  exit();
 ?>
