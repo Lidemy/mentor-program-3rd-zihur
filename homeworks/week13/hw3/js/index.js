@@ -48,35 +48,6 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-// 處理刪除留言
-$('.msgcard').on('click', '.msgcard__btn-delete', e => {
-  e.stopImmediatePropagation();
-  post_id = $(e.target).data('post_id');
-  csrfToken = $(e.target).data('csrftoken');
-  $.ajax({
-    type: 'POST',
-    url: './handle/handle_delete.php',
-    data: {
-      post_id,
-      csrfToken,
-    },
-  })
-  .done(res => {
-    data = JSON.parse(res);
-    if (data.status === 1) {
-      alert(data.msg);
-      $(e.target).parent('.msgcard').remove();
-      $(e.target).parent('.msgcard__inside').remove();
-    } else {
-      alert(data.msg);
-    };
-  })
-  .fail(res => {
-    data = JSON.parse(res);
-    alert(data.msg);
-  })
-});
-
 // 處理編輯留言
 const content = {};// 利用物件建立訊息容器
 const msgboard = document.querySelector('.msgboard');
@@ -91,46 +62,80 @@ msgboard.addEventListener('click', (e) => {
   }
   const editForm = `
   <textarea name="comments" class="msgcard__textarea">${content[postId]}</textarea>
-  <input type="submit" class="msgcard__btn-send" data-post_id="${postId}" data-csrf_token="${getCookie('csrfToken')}" value="Change 更改留言">`;
+  <button class="msgcard__btn-send" data-post_id="${postId}" data-csrf_token="${getCookie('csrfToken')}">Change 更改留言`;
   if (!e.target.classList.contains('editing')) {
     e.target.innerText = 'Cancel 取消編輯';
     target = e.target.parentNode.querySelector('.msgcard__content');
     target.outerHTML = editForm;
   } else {
     e.target.innerText = 'Edit 編輯';
-    target = e.target.parentNode.querySelector('form');
+    target = e.target.parentNode.querySelector('textarea');
     target.outerHTML = `<p class="msgcard__content">${nl2br(escapeHtml(content[postId]))}</p>`;
+    e.target.parentNode.removeChild(e.target.parentNode.querySelector('.msgcard__btn-send'));
   }
   e.target.classList.toggle('editing');
 });
 
-$('.msgboard').on('click', ':submit', e => {
-  post_id = $(e.target).data('post_id');
-  csrfToken = $(e.target).data('csrf_token');
+$('.msgboard').on('click', '.msgcard__btn-send', (e) => {
+  e.stopImmediatePropagation();
+  const postId = $(e.target).data('post_id');
+  const csrfToken = $(e.target).data('csrf_token');
   $.ajax({
     type: 'POST',
     url: './handle/handle_edit_msg.php',
-    data:{
-      post_id,
+    data: {
+      post_id: postId,
       csrfToken,
       comments: $(e.target).prev().val(),
-    }
-  })
-  .done(res => {
-    data = JSON.parse(res);
+    },
+  }).done((res) => {
+    const data = JSON.parse(res);
     if (data.status === 1) {
       alert(data.msg);
-      text = $(e.t0arget).prev().val();
-      console.log($(e.target).prev())
-      console.log($(e.target).prev().text());
-      $(e.target).prev().outerHTML(`<p>${text}</p>`);
+      $(e.target).next().text('Edit 編輯');
+      const pText = `<p class="msgcard__content">${$(e.target).prev().val()}</p>`;
+      $(e.target).prev().replaceWith(pText);
+      $(e.target).next().toggleClass('editing');
+      $(e.target).remove();
+    } else {
+      alert(data.msg);
     }
-  })
+  }).fail((res) => {
+    const data = JSON.parse(res);
+    alert(data.msg);
+  });
 });
 
 // 處理子留言回覆
 msgboard.addEventListener('click', (e) => {
-  if (!e.target.parentNode.classList.contains('msgcard__inside')) return;
+  if (!e.target.parentNode.classList.contains('msgcard__inside') || e.target.classList.contains('msgcard__textarea')) return;
   e.stopPropagation();
   e.target.parentNode.querySelector('form').classList.toggle('show');
+});
+
+// 處理刪除留言
+$('.msgcard').on('click', '.msgcard__btn-delete', (e) => {
+  e.stopImmediatePropagation();
+  const postId = $(e.target).data('post_id');
+  const csrfToken = $(e.target).data('csrftoken');
+  $.ajax({
+    type: 'POST',
+    url: './handle/handle_delete.php',
+    data: {
+      post_id: postId,
+      csrfToken,
+    },
+  }).done((res) => {
+    const data = JSON.parse(res);
+    if (data.status === 1) {
+      alert(data.msg);
+      $(e.target).parent('.msgcard').remove();
+      $(e.target).parent('.msgcard__inside').remove();
+    } else {
+      alert(data.msg);
+    }
+  }).fail((res) => {
+    const data = JSON.parse(res);
+    alert(data.msg);
+  });
 });
