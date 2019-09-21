@@ -1,5 +1,6 @@
 <?php
   require_once('../conn.php');
+  require_once('../utils.php');
   if (
     isset($_POST['nickname']) && isset($_POST['account']) &&
     isset($_POST['password']) && isset($_POST['sexuality']) &&
@@ -31,11 +32,17 @@
                           VALUES (?, ?, ?, ?, ?)");
   $stmt->bind_param('sssss', $nickname, $account, $password, $sexuality, $avatar);
   if ($stmt->execute()) {
-    echo "<script>alert('註冊成功，請前往登入唷');
+    $userId = $stmt->insert_id;
+    session_start();
+    $_SESSION['user_id'] = $userId;
+    $_SESSION['auth'] = 'normal';
+    setcookie("member_nickname", $nickname, time()+3600*24, "/");
+    setcookie("csrfToken", randomToken(), time()+3600*24, "/");
+    echo "<script>alert('註冊成功了唷，將自動為你登入');
     window.location = '../index.php'</script>";
     exit();
   } else {
-    // 我覺得最好的回饋應該是邊輸入邊驗證了，但那好像是 Week13 結合 AJAX 的進度？
+    // 我覺得最好的回饋應該是邊輸入邊驗證了，但好像之後有套件能用就...
     echo "<script>alert('帳號或暱稱重複囉');
     window.location = '../signup.php'</script>";
     exit();

@@ -80,7 +80,7 @@ border-radius: 3px;
   outline: none;
   resize: none;
 }
-.comments input {
+.comments__btn-leaveMsg {
   display: block;
   width: 100px;
   margin: 5px auto;
@@ -90,7 +90,7 @@ border-radius: 3px;
   color: rgb(0, 30, 85);
   transition: all 0.3s
 }
-.comments input:hover {
+.comments__btn-leaveMsg:hover {
   display: block;
   width: 100px;
   margin: 5px auto;
@@ -98,9 +98,6 @@ border-radius: 3px;
   color: white;
   background: rgb(0, 30, 85);
   border: 2px  solid rgb(0, 30, 85);
-}
-.comments .invisible {
-  display: none;
 }
 .unlogin {
   position: absolute;
@@ -220,7 +217,7 @@ border-radius: 3px;
   color: rgb(0, 30, 85);
   cursor: pointer;
 }
-.msgcard__btn-edit:active, .msgcard__btn-delete:active, .msgcard__btn-reply:active, .msgcard__btn-send:active, .msgcard__btn-thumb:active, .msgcard__btn-edit:focus, .msgcard__btn-delete:focus, .msgcard__btn-reply:focus, .msgcard__btn-send:focus, .msgcard__btn-thumb:focus {
+.msgcard__btn-edit:active, .msgcard__btn-delete:active, .msgcard__btn-reply:active, .msgcard__btn-send:active, .msgcard__btn-thumb:active {
   background: rgb(255, 255, 255);
   color: rgb(0, 30, 85);
   outline: none;
@@ -243,16 +240,13 @@ border-radius: 3px;
   outline: none;
   resize: none;
 }
-.reply {
-  display: flex;
-  justify-content: flex-end;
-  flex-flow: wrap;
-}
 .msgcard__inside > .reply {
   display: none;
 }
-.msgcard__inside > .show {
+.reply__wrap {
   display: flex;
+  justify-content: flex-end;
+  flex-flow: wrap;
 }
 .author::after {
   content: "原Po";
@@ -295,7 +289,6 @@ border-radius: 3px;
 /* 子留言 */
 .msgcard__inside {
   color: white;
-  display: block;
   width: 95%;
   margin: 0 0 0 auto;
   padding: 25px 0 25px 0;

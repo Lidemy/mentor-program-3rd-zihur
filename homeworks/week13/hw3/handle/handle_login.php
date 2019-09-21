@@ -32,7 +32,7 @@
     window.location = '../login.php'</script>";
     exit();
   }
-  // 通過進行設定
+  // 通過後進行 SESSION 和 cookie 設定
   $_SESSION['user_id'] = $row['id'];
   $_SESSION['auth'] = $row['authority'];
   setcookie("member_nickname", $row['nickname'], time()+3600*24, "/");

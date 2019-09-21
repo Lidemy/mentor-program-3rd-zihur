@@ -33,9 +33,13 @@
   // 預防 CSRF 攻擊
   function csrfPrevent() {
     $csrfToken = '';
+    $res = array(
+      'status'  => 0,
+      'msg'     => '403！請重新登入',
+    );
     if (!isset($_COOKIE['csrfToken'])) {
-      header('Location: ../index.php');
-      die('CSRF 錯誤');
+      echo json_encode($res);
+      exit();
     }
     if (isset($_POST['csrfToken'])) {
       $csrfToken = $_POST['csrfToken'];
@@ -44,8 +48,8 @@
       $csrfToken = $_GET['csrfToken'];
     }
     if ($_COOKIE['csrfToken'] !== $csrfToken) {
-      header('Location: ../index.php');
-      die('CSRF 錯誤');
+      echo json_encode($res);
+      exit();
     }
   }
 ?>

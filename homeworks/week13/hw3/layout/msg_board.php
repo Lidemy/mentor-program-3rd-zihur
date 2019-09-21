@@ -1,5 +1,5 @@
 <?php
-  // 編輯刪除區塊函式，這邊的函式自己感覺有點微妙，有種為了寫而寫的感覺
+  // 編輯刪除區塊函式
   function moreOption($row, $user_id, $auth, $csrfToken) {
     if ($row['user_id'] == $user_id || $auth === 'admin' || $auth === 'super_admin') {
       echo "<button class='msgcard__btn-edit' data-post_id='${row['id']}'>Edit 編輯</button>";
@@ -15,7 +15,7 @@
     $stmt_thumbs->bind_param('i', $post_id);
     $stmt_thumbs->execute();
     $result_thumbs = $stmt_thumbs->get_result();
-    return $num_of_rows = $result_thumbs->num_rows;
+    return $result_thumbs->num_rows;
   }
   // 顯示使用者的按讚狀態，不清楚是不是該拉出去寫成 layout 區塊
   function userThumb($row, $user_id, $conn) {
@@ -26,32 +26,25 @@
     $stmt_thumb->execute();
     $result_thumb = $stmt_thumb->get_result();
     if ($result_thumb->num_rows === 1) {
-      echo "<a href='./handle/handle_thumbs.php?post_id=${row['id']}'>";
-      echo   "<button class='msgcard__btn-thumb thumb-actived'>取消按讚 ";
-      echo     "<i class='far fa-thumbs-up fa-lg'></i>";
-      echo     "<span> " . sql_thumbs_sums($row['id'], $conn) . "</span>";
+      echo   "<button class='msgcard__btn-thumb thumb-actived' data-post_id='${row['id']}'>取消按讚 ";
+      echo     "<i class='far fa-thumbs-up fa-lg' aria-hidden='true'></i> " . sql_thumbs_sums($row['id'], $conn);
       echo   "</button>";
-      echo "</a>";
     } else {
-      echo "<a href='./handle/handle_thumbs.php?post_id=${row['id']}'>";
-      echo   "<button class='msgcard__btn-thumb'>按讚 ";
-      echo     "<i class='far fa-thumbs-up fa-lg'></i>";
-      echo     "<span> " . sql_thumbs_sums($row['id'], $conn) . "</span>";
+      echo   "<button class='msgcard__btn-thumb' data-post_id='${row['id']}'>按讚 ";
+      echo     "<i class='far fa-thumbs-up fa-lg' aria-hidden='true'></i> " . sql_thumbs_sums($row['id'], $conn);
       echo   "</button>";
-      echo "</a>";
     }
   }
   // 建立回復表單函式，感覺好像也要拉出去寫成 layout 區塊，但是要拉進的 SQL 參數不同，最後還是寫成 function，不知道這樣對不對
   function createReplyForm($row_reply, $csrfToken, $layer = 0) {
     global $row;//  <= 解不了多層限制在第五層的問題，先傳父留言 id 值進來
     if (empty($csrfToken)) return;
-    echo '<form action="./handle/handle_add_msg.php" method="POST" class="reply">';
-    echo   '<textarea name="comments" class="reply__textarea" placeholder="回復留言"></textarea>';
-    echo   '<input type="text" class="invisible" name="parent_id" value="' . $row['id'] . '">';//  <= 寫不出多層，先將父留言指定為第一層
-    echo   '<input type="text" class="invisible" name="layer" value="' . $layer . '">';
-    echo   '<input type="text" class="invisible" name="csrfToken" value="' . $csrfToken . '">';
-    echo   '<input type="submit" class="msgcard__btn-reply" value="Reply 回覆">';
-    echo '</form>';
+    echo  '<form class="reply">';
+    echo    '<div class="reply__wrap">';
+    echo      '<textarea name="comments" class="reply__textarea" placeholder="回復留言"></textarea>';
+    echo      '<button class="msgcard__btn-reply" data-parent_id=' . $row['id'] . ' data-csrfToken=' . $csrfToken . '>Reply 回覆</button>';
+    echo    '</div>';
+    echo  '</form>';
   }
 ?>
 
@@ -67,20 +60,20 @@
     // SQL 指令，查詢留言列表
     $offset = $page * 20 - 20;
     $stmt = $conn->prepare("SELECT comments.*, avatar, nickname, authority
-                            FROM zihur_comments AS comments
-                            JOIN zihur_users AS users
-                              ON comments.user_id = users.id
-                            WHERE comments.is_deleted != 1 AND parent_id = 0
-                            ORDER BY created_at DESC LIMIT 20 OFFSET ?");
+                              FROM zihur_comments AS comments
+                              JOIN zihur_users AS users
+                                ON comments.user_id = users.id
+                             WHERE comments.is_deleted != 1 AND parent_id = 0
+                          ORDER BY created_at DESC LIMIT 20 OFFSET ?");
     $stmt->bind_param('i', $offset);
     $stmt->execute();
     $result = $stmt->get_result();
 
     $sql_reply = "SELECT comments.*, avatar, nickname, authority
-                  FROM zihur_comments AS comments
-                  JOIN zihur_users AS users
-                    ON comments.user_id = users.id
-                  WHERE comments.is_deleted != 1 AND parent_id != 0";
+                    FROM zihur_comments AS comments
+                    JOIN zihur_users AS users
+                      ON comments.user_id = users.id
+                   WHERE comments.is_deleted != 1 AND parent_id != 0";
     $result_reply = $conn->query($sql_reply);
 
     // 主留言列表
@@ -101,8 +94,8 @@
     ?>
     <!-- 子留言列表 -->
     <?php
-    $layer = 1;
-      $result_reply->data_seek(0);
+      $layer = 1;
+      $result_reply->data_seek(0);//                              <= 重置搜尋位置
       while ($row_reply = $result_reply->fetch_assoc()):
         if ($row_reply['parent_id'] == $row['id']):
     ?>
