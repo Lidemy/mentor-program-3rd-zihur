@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/normalized.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src=""></script>
+  <title>Document</title>
+</head>
+<body>
+    <div class="contain">
+        <div class="row">
+          <div class="col">
+            <div class="box">我是第一格</div>
+          </div>
+        </div>
+      </div>
+  <div class="contain">
+    <div class="row">
+      <div class="col-6">
+        <div class="box">我是第一格</div>
+      </div>
+      <div class="col-6">
+        <div class="box">我是第二格</div>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+      <div class="row">
+        <div class="col-4">
+          <div class="box">我是第一格</div>
+        </div>
+        <div class="col-4">
+          <div class="box">我是第二格</div>
+        </div>
+        <div class="col-4">
+          <div class="box">我是第三格</div>
+        </div>
+      </div>
+    </div>
+    <div class="contain">
+      <div class="row">
+        <div class="col-2 col-md-12">
+          <div class="box">我是第一格，我佔了兩欄</div>
+        </div>
+        <div class="col  col-md">
+          <div class="box">我是第二格，利用 flex-grow 自動分配剩餘空間</div>
+        </div>
+        <div class="col-5  col-md-4">
+          <div class="box">我是第三格，我佔了五欄</div>
+        </div>
+      </div>
+    </div>
+    上面為自行測驗區
+    <hr>
+    下面為作業要求區 container 的區塊 960px <br>
+    在往上慣用數字似乎就是 1140 px，原因同樣為公倍數
+    <div class="contain">
+        <div class="row">
+          <div class="col-2 col-md-12">
+            <div class="box">我是第一格，我佔了兩欄</div>
+          </div>
+          <div class="col  col-md-12">
+            <div class="box">我是第二格，利用 flex-grow 自動分配剩餘空間</div>
+          </div>
+          <div class="col-5  col-md-12">
+            <div class="box">我是第三格，我佔了五欄</div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

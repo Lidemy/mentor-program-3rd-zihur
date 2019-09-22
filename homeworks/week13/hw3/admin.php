@@ -8,7 +8,7 @@
   // 權限驗證結束
 ?>
 <?php
-  // 處理 POST
+  // 處理 POST，將更改的值進行更新。
   $result_msg = "";
   if (isset($_POST['authority'])) {
     $authority = $_POST['authority'];
