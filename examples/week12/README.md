@@ -12,6 +12,12 @@
 
 只要你能有這個意識，就能防止大多數的攻擊；但如果沒有的話...呵呵。
 
+本週最常見的三個錯誤：
+
+1. 沒有把所有用到 SQL 的地方都改成 prepared statement
+2. 忘了防止使用者暱稱的 XSS
+3. 沒有做好權限管理，可以刪除與編輯任意文章或是仿冒身份發文
+
 以下直接來看幾個 case：
 
 ``` php
@@ -123,11 +129,16 @@
 
 在這邊提醒大家兩件事：
 
-1. 永遠記得權限驗證，做任何操作時都要想一下有沒有人可以繞過權限驗證（或你根本忘記做全縣驗證）
+1. 永遠記得權限驗證，做任何操作時都要想一下有沒有人可以繞過權限驗證（或你根本忘記做權限驗證）
 2. 永遠使用 prepared statement。你可能會說：「可是有些地方沒有參數，或有些地方參數是我自己能控制的」，對，這些地方可能不會有 SQL Injection 的風險，但第一如果你之後改那段 code 呢？第二，你怎麼知道那邊不會有？
 
 上面舉的那些範例也可能是自認為沒有 SQL Injection 的風險，但這才是最致命的地方。不要為了偷懶用回比較方便的 query，只要有用到 SQL 的地方，全部都用 prepared statement 才是正解。
 
+補充：
+
+XSS 的部分除了留言內容，使用者暱稱也要防啊！不確定的話你就每個輸出的地方都 escape 就好，千萬不要自作聰明！
+
+另外，這邊有 SQL Injection 的真實範例：https://www.youtube.com/watch?v=ABi1jUbDzPg&feature=youtu.be
 
 ## 什麼是 Session？
 
@@ -151,6 +162,11 @@ session 只是個機制，就像是投票那樣。但它本身不會規定投票
 
 session 也是一樣的，這個機制也能有很多不同的實作方式，你可以像我們一樣自己用 users_certificate 這個 table 來實作，也可以用 PHP 內建的 $_SESSION 來實作，這些都叫做 session，只是實作方法不同。
 
+更多細節可以參考 Session 與 Cookie 三部曲：
+
+1. [白話 Session 與 Cookie：從經營雜貨店開始](https://github.com/aszx87410/blog/issues/45)
+2. [淺談 Session 與 Cookie：一起來讀 RFC](https://github.com/aszx87410/blog/issues/45)
+3. [深入 Session 與 Cookie：Express、PHP 與 Rails 的實作](https://github.com/aszx87410/blog/issues/46)
 
 
 
