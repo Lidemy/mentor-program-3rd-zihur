@@ -28,8 +28,10 @@
   },
   "homepage": "https://github.com/aszx87410/program-3rd#readme",
   "dependencies": {
+    "autoprefixer": "^9.6.5",
     "eslint": "^5.15.1",
     "normalize.css": "^8.0.1",
+    "postcss-cli": "^6.1.3",
     "request": "^2.88.0"
   },
   "devDependencies": {
