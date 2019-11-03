@@ -72,7 +72,7 @@ class Car {
   anotherName = {
     name: 'Lulu',
     test: function() {
-      return this;
+      return this.name;
     }
   }
 }
