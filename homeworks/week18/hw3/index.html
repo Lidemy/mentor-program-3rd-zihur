@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+  <script src="js/main.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container pt-5 text-center">
+    <div class="card border-light mb-3 px-3">
+      <div class="card-header display-1 todolist__title">TO-DO List</div>
+      <div class="input-group input-group-lg my-5">
+        <input type="text" class="form-control" placeholder="Add something todo..." aria-label="Add something todo..." aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="button-add">Add</button>
+        </div>
+      </div>
+      <div class="list">
+        <p class="h4 font-weight-light mt-3 list__title">Here are 0 pending items</p>
+        <div class="list__items input-group mb-3 uncompleted">
+          <div class="input-group-prepend  border-0">
+            <label class="mb-0"><input type="checkbox" class="list__check" aria-label="Checkbox for following text input"></label>
+          </div>
+          <div class="list__text text-secondary border-0">
+            <p class="mb-0">Give it a click if you like.</p>
+          </div>
+          <div class="list__close input-group-append border-0">
+            <button type="button" class="btn btn-danger close p-2" aria-label="Close">
+              <span aria-hidden="true" aria-label="Close">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="list__items input-group mb-3 uncompleted">
+          <div class="input-group-prepend  border-0">
+            <label class="mb-0"><input type="checkbox" class="list__check" aria-label="Checkbox for following text input"></label>
+          </div>
+          <div class="list__text text-secondary border-0">
+            <p class="mb-0">Give it a click if you like.</p>
+          </div>
+          <div class="list__close input-group-append border-0">
+            <button type="button" class="btn btn-danger close p-2" aria-label="Close">
+              <span aria-hidden="true" aria-label="Close">&times;</span>
+            </button>
+          </div>
+        </div>
+        <p class="h4 font-weight-light mt-5 mb-3 list__title--completed">You have completed 0 tasks</p>
+        <div class="list__items input-group mb-3 completed">
+          <div class="input-group-prepend  border-0">
+            <label class="mb-0"><input type="checkbox" class="list__check" aria-label="Checkbox for following text input" checked></label>
+          </div>
+          <div class="list__text text-secondary border-0">
+            <p class="mb-0">Give it a click if you like.</p>
+          </div>
+          <div class="list__close input-group-append border-0">
+            <button type="button" class="btn btn-danger close p-2" aria-label="Close">
+              <span aria-hidden="true" aria-label="Close">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
