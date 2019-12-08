@@ -1,0 +1,140 @@
+$border = 2px solid rgba(225, 225, 225, 0)
+$basicFont = -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, RobotoDraft, Helvetica, Arial, 'Noto Sans SC', '微軟正黑體', sans-serif;
+$primeryColor = white
+$titleColor = rgb(231, 243, 253)
+adjustAlpha(num)
+  rgba(0, 0, 0, num)
+
+*
+  box-sizing border-box
+  line-height 1.3
+body
+  color white
+  font-family $basicFont
+  background-image url(https://i.imgur.com/1MZejOg.jpg)
+  background-size cover
+  background-position bottom
+  background-attachment: fixed
+  width 100%
+  height 100vh;
+
+.header
+  display flex
+  background black
+  padding 15px
+  justify-content: flex-start
+  align-items center
+  width 100%
+
+  &__logo
+    font-size 1.25rem
+    min-width 165px
+    color $primeryColor
+    margin-right 5px
+
+  &__nav
+    display flex
+    align-items center
+    font-size 1rem
+    color $primeryColor - adjustAlpha(0.5)
+    list-style-type none
+    padding 0
+    margin 0
+
+    li
+      margin-left 15px
+
+      &:hover
+        color $primeryColor - adjustAlpha(0.2)
+    
+    .actived
+    .actived:hover
+      color $primeryColor
+  
+  &__description
+    margin-left: auto
+    color $primeryColor
+    
+    &::after
+      content 'NOW'
+      color black
+      background-color $primeryColor
+      padding 5px
+      margin-left 5px
+
+.wrap
+  width 1160px
+  margin 0 auto
+  text-align center
+
+.title
+  color $titleColor
+  font-weight 300
+  font-size 3.5rem
+  margin 15px 0 0 0
+
+  &__description
+    color rgb(184, 223, 255)
+    font-size 1.25rem
+    margin 10px 0 15px 0
+
+.live-game
+  display flex
+  flex-wrap wrap
+
+  &__box
+    background black
+    opacity 0.8
+    width 290px
+    padding 3px
+    transition all .3s
+
+    &:hover
+      z-index 1
+      opacity 1
+      box-shadow: 0 0 15px 5px black
+      transform scale(1.03)
+
+  &__screencast
+    opacity .8
+    width: 100%
+    height auto
+
+  &__content
+    display flex
+    align-items center
+    padding 0 5px 5px 5px
+
+  &__avatar
+    width 23%
+    height auto
+    border-radius 50%
+    margin 3px 3px 0 3px
+
+  &__info-block
+    width 76%
+    padding 5px
+    text-align left
+
+  &__title
+    font-size 1rem
+    color $titleColor
+    width 100%
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+    margin-bottom 5%
+  
+  &__streamer
+    font-size .8rem
+    color $titleColor
+
+.footer
+  color $primeryColor - adjustAlpha(0.5)
+  font-weight 300
+  margin 25px
+
+  a
+    color $primeryColor - adjustAlpha(0.5)
+    font-weight 600
+    text-decoration none
