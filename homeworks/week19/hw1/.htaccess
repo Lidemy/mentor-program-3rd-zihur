@@ -1,0 +1,12 @@
+# Prevent directory listings 預防資料列表秀出
+# 重點在後面的 -Indexes，- 類似於否定意思
+# ! 也是否定意思，但這似乎會造成後面無法使用一些正則表達 $N 的指令
+Options All -Indexes
+
+# 開啟 rewrite 功能
+Options +FollowSymlinks
+RewriteEngine on
+
+# 重寫規則
+RewriteRule ^api/todos$   api/todos.php?view=all [nc,qsa]
+RewriteRule ^api/todos/([0-9]+)$   api/todos.php?view=single&id=$1 [nc,qsa]
